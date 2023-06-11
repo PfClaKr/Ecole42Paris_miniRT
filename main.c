@@ -6,9 +6,13 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 07:05:54 by ychun             #+#    #+#             */
-/*   Updated: 2023/05/29 07:06:04 by ychun            ###   ########.fr       */
+/*   Updated: 2023/06/05 00:13:05 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "mlx.h"
+#include "includes/miniRT.h"
+
+int	main(int ac, char **av)
+{
+	parsing(ac, av);
+}

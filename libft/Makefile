@@ -6,13 +6,13 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:16:38 by ychun             #+#    #+#              #
-#    Updated: 2023/05/29 07:09:25 by ychun            ###   ########.fr        #
+#    Updated: 2023/06/08 00:07:54 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 AR = ar rc
@@ -51,6 +51,11 @@ SRCS = 	ft_atoi.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		get_next_line.c \
+		get_next_line_utils.c \
+		ft_printf.c \
+		ft_printf_utils.c \
+		ft_printf_utils2.c \
 		ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
@@ -59,10 +64,10 @@ SRCS = 	ft_atoi.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		ft_error.c
 
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS:.c=.o)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -72,10 +77,8 @@ $(NAME): $(OBJS)
 
 all: $(NAME)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

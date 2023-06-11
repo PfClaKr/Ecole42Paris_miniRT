@@ -6,14 +6,18 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 19:26:34 by ychun             #+#    #+#             */
-/*   Updated: 2021/11/29 19:15:29 by ychun            ###   ########.fr       */
+/*   Updated: 2023/06/05 00:10:50 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
+
+# define BUFFER_SIZE 42
 
 typedef struct s_list
 {
@@ -64,5 +68,22 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char	*get_next_line(int fd);
+int		ft_printf(const char *format, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+int		ft_putnbr_len(long n);
+int		ft_putnbr(int n);
+int		ft_putunsignednbr(unsigned int n);
+int		ft_puthex_len(unsigned int x, int len);
+int		ft_puthex(unsigned int x, char format);
+int		ft_putpointer_len(unsigned long p);
+int		ft_convert_pointer(unsigned long p);
+int		ft_putpointer(unsigned long p);
+size_t	ft_strlen2(const char *c);
+char	*ft_strcpy2(char *dest, char *s1, char *s2);
+char	*ft_strchr2(const char *s, int c);
+char	*ft_strjoin2(char *s1, char *s2);
+void	ft_error(char *str, int status);
 
 #endif
