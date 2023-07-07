@@ -17,6 +17,6 @@ void	ft_error(char *str, int status)
 	if (!str)
 		write(status, "Error\n", 6);
 	else
-		write(status, *str, ft_strlen(str));
+		write(status, str, ft_strlen(str));
 	exit(status);
 }

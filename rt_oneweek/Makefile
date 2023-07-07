@@ -20,7 +20,7 @@ MLX_FLAGS = -lm -lmlx -lXext -lX11
 HEAD = -I includes -I libft -I mlx
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g3 #-fsanitize=address -g3 #-Wall -Wextra -Werror
 
 .c.o :
 	${CC} ${CFLAGS} ${HEAD} -c $< -o ${<:.c=.o}
