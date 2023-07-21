@@ -8,7 +8,7 @@ char	*tab_to_space(char *str)
 		return (NULL);
 	i = -1;
 	while (str[++i])
-		if (str[i] == '\t' || str[i] == '\v')
+		if (str[i] == '\t' || str[i] == '\v' || str[i] == '\n')
 			str[i] = ' ';
 	return (str);
 }
