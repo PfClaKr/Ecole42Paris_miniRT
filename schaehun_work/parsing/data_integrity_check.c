@@ -6,7 +6,7 @@ int	data_check_by_id(char **data)
 	char	*id;
 	int	ret;
 
-	if (!data)
+	if (!data || !data[0])
 		return (0);
 	id = data[0];
 	ret = -1;

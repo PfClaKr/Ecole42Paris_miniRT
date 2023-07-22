@@ -3,6 +3,8 @@
 
 # include "ft_string.h"
 # include "utils.h"
+# include "ft_list.h"
+# include "object_structures.h"
 
 char	**parse_get_data(int fd);
 
@@ -25,5 +27,19 @@ int	data_check_cy(char **data);
 
 int	data_check_by_id(char **data);
 int	data_integrity_check(char *filename);
+
+double	data_get_ratio(char *data);
+t_vec3	data_get_color(char *data);
+t_vec3	data_get_pos(char *data);
+double	data_get_fov(char *data);
+t_vec3	data_get_orivec(char *data);
+double	data_get_size(char *data);
+
+t_list	*parse_object_a(char **data);
+t_list	*parse_object_c(char **data);
+t_list	*parse_object_l(char **data);
+t_list	*parse_object_pl(char **data);
+t_list	*parse_object_sp(char **data);
+t_list	*parse_object_cy(char **data);
 
 #endif

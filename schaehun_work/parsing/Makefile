@@ -14,6 +14,8 @@ SRC		=	main.c \
 			tab_to_space.c \
 			get_line.c \
 			\
+			ft_list.c \
+			\
 			count_double_arr.c \
 			free_double_arr.c \
 			ft_atoi.c \
@@ -27,6 +29,12 @@ SRC		=	main.c \
 			data_check_scene_obj.c \
 			data_check_geo_obj.c \
 			data_integrity_check.c \
+			\
+			data_get_common.c \
+			data_get_unique.c \
+			\
+			parse_geo_obj.c \
+			parse_scene_obj.c \
 
 OBJS		=	${SRC:.c=.o}
 
