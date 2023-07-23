@@ -3,7 +3,7 @@
 
 # include <stdlib.h>
 
-enum	types
+enum	e_types
 {
 	A,
 	C,
@@ -15,13 +15,13 @@ enum	types
 
 typedef struct s_list
 {
-	enum types	id;
-	void		*data;
+	enum e_types	id;
+	void			*data;
 	struct s_list	*next;
 }	t_list;
 
 t_list	*ft_list_new(void *data);
-int	ft_list_append(t_list **list, t_list *new);
+int		ft_list_append(t_list **list, t_list *new);
 void	ft_list_destroy(t_list **list, void (*destroy)(void *));
 
 #endif

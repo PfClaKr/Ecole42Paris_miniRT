@@ -6,8 +6,8 @@ double	ft_atof(const char *str)
 	double	res;
 	double	res2;
 	char	*c;
-	int	len;
-	int	sign;
+	int		len;
+	int		sign;
 
 	sign = 1;
 	c = (char *)str;
@@ -25,5 +25,5 @@ double	ft_atof(const char *str)
 	if (res >= 0)
 		return ((res + res2) * sign);
 	else
-		return ((res + -res2) * sign);	
+		return ((res + -res2) * sign);
 }

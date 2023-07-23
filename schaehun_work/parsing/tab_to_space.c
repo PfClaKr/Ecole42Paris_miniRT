@@ -3,7 +3,7 @@
 char	*tab_to_space(char *str)
 {
 	int	i;
-	
+
 	if (!str)
 		return (NULL);
 	i = -1;

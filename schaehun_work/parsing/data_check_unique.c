@@ -15,8 +15,8 @@ int	data_check_orivec(char *data)
 	ori[2] = ft_atof(tmp[2]);
 	free_double_arr(tmp);
 	if ((ori[0] < -1.0 || ori[0] > 1.0)
-			|| (ori[1] < -1.0 || ori[1] > 1.0)
-			|| (ori[2] < -1.0 || ori[2] > 1.0))
+		|| (ori[1] < -1.0 || ori[1] > 1.0)
+		|| (ori[2] < -1.0 || ori[2] > 1.0))
 		return (-1);
 	return (0);
 }
@@ -44,4 +44,3 @@ int	data_check_size(char *data)
 		return (-1);
 	return (0);
 }
-

@@ -14,7 +14,7 @@ int	data_check_ratio(char *data)
 
 int	data_check_color(char *data)
 {
-	int	color[3];
+	int		color[3];
 	char	**tmp;
 
 	tmp = ft_split(data, ',');
@@ -27,15 +27,15 @@ int	data_check_color(char *data)
 	color[2] = ft_atoi(tmp[2]);
 	free_double_arr(tmp);
 	if ((color[0] < 0 || color[0] > 255)
-			|| (color[1] < 0 || color[1] > 255)
-			|| (color[2] < 0 || color[2] > 255))
+		|| (color[1] < 0 || color[1] > 255)
+		|| (color[2] < 0 || color[2] > 255))
 		return (-1);
 	return (0);
 }
 
 int	data_check_pos(char *data)
 {
-	int	pos[3];
+	int		pos[3];
 	char	**tmp;
 
 	tmp = ft_split(data, ',');
@@ -48,9 +48,8 @@ int	data_check_pos(char *data)
 	pos[2] = ft_atoi(tmp[2]);
 	free_double_arr(tmp);
 	if ((pos[0] < -1000 || pos[0] > 1000)
-			|| (pos[1] < -1000 || pos[1] > 1000)
-			|| (pos[2] < -1000 || pos[2] > 1000))
+		|| (pos[1] < -1000 || pos[1] > 1000)
+		|| (pos[2] < -1000 || pos[2] > 1000))
 		return (-1);
 	return (0);
 }
-

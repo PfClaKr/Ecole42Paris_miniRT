@@ -2,9 +2,9 @@
 
 char	*ft_strstrip(char *str, char c)
 {
-	int	i;
-	int	j;
-	int	k;
+	int		i;
+	int		j;
+	int		k;
 	char	*strip;
 
 	i = 0;

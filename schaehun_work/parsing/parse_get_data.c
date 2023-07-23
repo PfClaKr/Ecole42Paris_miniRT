@@ -22,7 +22,6 @@ char	**parse_get_data(int fd)
 	char	*line;
 	char	**data;
 
-	// skip empty lines
 	line = tab_to_space(get_line(fd));
 	while (is_empty_str(line))
 	{

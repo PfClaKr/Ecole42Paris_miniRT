@@ -29,4 +29,3 @@ double	data_get_size(char *data)
 {
 	return (ft_atof(data));
 }
-

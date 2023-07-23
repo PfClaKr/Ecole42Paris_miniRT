@@ -3,8 +3,8 @@
 int	ft_atoi(const char *str)
 {
 	long long	num;
-	int	sign;
-	int	i;
+	int			sign;
+	int			i;
 
 	i = 0;
 	sign = 1;

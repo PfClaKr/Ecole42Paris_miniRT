@@ -1,15 +1,26 @@
 #include "ft_string.h"
 
-char *get_line(int fd)
+static char	*str_normalize(char *tmp, int i)
 {
-	int	i;
-	int	r;
+	char	*str;
+
+	str = malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
+	str[i] = '\0';
+	while (--i >= 0)
+		str[i] = tmp[i];
+	return (str);
+}
+
+char	*get_line(int fd)
+{
+	int		i;
+	int		r;
 	char	tmp[8192];
 	char	*str;
 	char	c;
 
-	if (!fd)
-		return (NULL);
 	i = 0;
 	c = '\0';
 	while (1)
@@ -23,11 +34,6 @@ char *get_line(int fd)
 	}
 	if (i < 1 || r <= 0)
 		return (NULL);
-	str = malloc(sizeof(char) * (i + 1));
-	if (!str)
-		return (NULL);
-	str[i] = '\0';
-	while (--i >= 0)
-		str[i] = tmp[i];
+	str = str_normalize(tmp, i);
 	return (str);
 }

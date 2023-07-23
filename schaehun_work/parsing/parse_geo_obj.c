@@ -40,4 +40,3 @@ t_list	*parse_object_cy(char **data)
 	cy->color = data_get_color(data[5]);
 	return (ft_list_new(cy));
 }
-

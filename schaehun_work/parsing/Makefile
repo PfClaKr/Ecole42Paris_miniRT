@@ -35,13 +35,14 @@ SRC		=	main.c \
 			\
 			parse_geo_obj.c \
 			parse_scene_obj.c \
+			parse.c \
 
 OBJS		=	${SRC:.c=.o}
 
 .c.o:
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
-FLAGS		=	-g3 #-Wall -Wextra -Werror
+FLAGS		=	-g3 -Wall -Wextra -Werror
 
 all: ${NAME}
 

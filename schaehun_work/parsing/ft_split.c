@@ -1,7 +1,7 @@
 #include "ft_string.h"
 #include "utils.h"
 
-int	jump_sep(char *str, char sep)
+static int	jump_sep(char *str, char sep)
 {
 	int	i;
 
@@ -13,7 +13,7 @@ int	jump_sep(char *str, char sep)
 	return (i);
 }
 
-int	count_words(char *str, char sep)
+static int	count_words(char *str, char sep)
 {
 	int	i;
 	int	count;
@@ -34,7 +34,7 @@ int	count_words(char *str, char sep)
 	return (count);
 }
 
-int	count_letter(char *str, char sep)
+static int	count_letter(char *str, char sep)
 {
 	int	i;
 
@@ -44,22 +44,18 @@ int	count_letter(char *str, char sep)
 	return (i);
 }
 
-char	**ft_split(char *str, char sep)
+static char	**split_init(char *str, char sep, int count)
 {
-	int	i;
-	int	j;
-	int	k;
-	int	count;
+	int		i;
+	int		j;
+	int		k;
 	char	**split;
 
-	if (!str || !sep)
-		return (NULL);
-	count = count_words(str, sep);
+	i = -1;
+	j = 0;
 	split = malloc(sizeof(char *) * (count + 1));
 	if (!split)
 		return (NULL);
-	i = -1;
-	j = 0;
 	while (++i < count)
 	{
 		j += jump_sep(&str[j], sep);
@@ -72,5 +68,19 @@ char	**ft_split(char *str, char sep)
 		split[i][k] = '\0';
 	}
 	split[count] = NULL;
+	return (split);
+}
+
+char	**ft_split(char *str, char sep)
+{
+	int		count;
+	char	**split;
+
+	if (!str || !sep)
+		return (NULL);
+	count = count_words(str, sep);
+	split = split_init(str, sep, count);
+	if (!split)
+		return (NULL);
 	return (split);
 }

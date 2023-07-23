@@ -4,7 +4,7 @@
 int	data_check_by_id(char **data)
 {
 	char	*id;
-	int	ret;
+	int		ret;
 
 	if (!data || !data[0])
 		return (0);
@@ -27,8 +27,8 @@ int	data_check_by_id(char **data)
 
 int	data_integrity_check(char *filename)
 {
-	int	fd;
-	int	ret;
+	int		fd;
+	int		ret;
 	char	**data;
 
 	fd = open(filename, O_RDONLY);
