@@ -453,7 +453,7 @@ int main()
 		--j;
 	}
 
-	// mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.mlx_img.mlx_img, 0, 0);
+	//mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.mlx_img.mlx_img, 0, 0);
 	mlx_loop(mlx.mlx_ptr);
 	return (0);
 }

@@ -14,6 +14,7 @@ int	main(void)
 	t_list	*objects;
 	t_list	*node;
 
+	objects = NULL;
 	if (parse(&objects, "scene.rt") == -1)
 	{
 		printf("parse error\n");
