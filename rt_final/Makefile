@@ -6,7 +6,7 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/07/23 21:45:31 by ychun            ###   ########.fr        #
+#    Updated: 2023/07/24 02:52:48 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,30 +53,36 @@ SRCS =	main.c \
 		utils/v_utils3.c \
 		utils/get_tan.c \
 
+
 OBJS = $(SRCS:.c=.o)
+#ODIR        := obj
+#OBJS        := $(SRCS:%.c=$(ODIR)/%.o)
+
 RM = rm -rf
 
-LD_FLAGS = -L mlx #-L libft -L mlx
+LD_FLAGS = -L mlx
 MLX_FLAGS = -lm -lmlx -lXext -lX11
-HEAD = -I includes -I mlx #-I libft -I mlx
+HEAD = -I includes -I mlx
 
 CC = gcc
-CFLAGS = -g3 #-fsanitize=address -g3 #-Wall -Wextra -Werror
+CFLAGS = -g3 #-fsanitize=address #-Wall -Wextra -Werror
 
 .c.o :
 	${CC} ${CFLAGS} ${HEAD} -c $< -o ${<:.c=.o}
 
 $(NAME) : ${OBJS}
-#	make -C libft
 	make -C mlx
 	${CC} ${CFLAGS} ${LD_FLAGS} ${OBJS} -o ${NAME} ${MLX_FLAGS}
+
+$(ODIR) :
+	mkdir -p $@
 
 all : ${NAME}
 
 clean :
 	make clean -C libft
 	make clean -C mlx
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${DDIR} ${ODIR}
 
 fclean : clean
 	make fclean -C libft

@@ -21,7 +21,7 @@ int	raytracing(t_list *obj)
 		mlx_close(&mlx);
 		return (-1);
 	}
-	render(obj, &mlx);
+//	render(obj, &mlx);
 	mlx_loop(mlx.mlx_ptr);
 	return (0);
 }
