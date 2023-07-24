@@ -6,7 +6,7 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/07/24 02:52:48 by ychun            ###   ########.fr        #
+#    Updated: 2023/07/24 23:55:00 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ SRCS =	main.c \
 		parsing/parse_scene_obj.c \
 		parsing/parse.c \
 		\
+		raytracing/prep_rt.c \
 		raytracing/raytracing.c \
+		raytracing/hit_sphere.c \
 		\
 		string/ft_strlen.c \
 		string/ft_strcpy.c \
@@ -52,11 +54,14 @@ SRCS =	main.c \
 		utils/v_utils2.c \
 		utils/v_utils3.c \
 		utils/get_tan.c \
+		utils/ft_clamp.c \
+		utils/get_color.c \
+		utils/mlx_utils.c
 
 
 OBJS = $(SRCS:.c=.o)
-#ODIR        := obj
-#OBJS        := $(SRCS:%.c=$(ODIR)/%.o)
+#ODIR        := ./obj
+#OBJS        := $(addprefix $(ODIR)/,$(SRC:.c=.o))
 
 RM = rm -rf
 
@@ -65,12 +70,14 @@ MLX_FLAGS = -lm -lmlx -lXext -lX11
 HEAD = -I includes -I mlx
 
 CC = gcc
-CFLAGS = -g3 #-fsanitize=address #-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 
 .c.o :
+#${ODIR}/%.o : %.c
+#${CC} ${CFLAGS} ${HEAD} -o $@ -c $<
 	${CC} ${CFLAGS} ${HEAD} -c $< -o ${<:.c=.o}
 
-$(NAME) : ${OBJS}
+$(NAME) : ${ODIR} ${OBJS}
 	make -C mlx
 	${CC} ${CFLAGS} ${LD_FLAGS} ${OBJS} -o ${NAME} ${MLX_FLAGS}
 
@@ -80,12 +87,10 @@ $(ODIR) :
 all : ${NAME}
 
 clean :
-	make clean -C libft
 	make clean -C mlx
-	${RM} ${OBJS} ${DDIR} ${ODIR}
+	${RM} ${OBJS} ${ODIR}
 
 fclean : clean
-	make fclean -C libft
 	${RM} ${NAME}
 
 re : fclean all

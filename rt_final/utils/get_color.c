@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 16:08:24 by ychun             #+#    #+#             */
-/*   Updated: 2021/11/26 18:56:05 by ychun            ###   ########.fr       */
+/*   Created: 2023/07/24 19:10:45 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/24 20:40:44 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "utils.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	get_color(t_vec3 pixel)
 {
-	unsigned char	*new_s1;
-	unsigned char	*new_s2;
-	size_t			i;
+	int	x;
+	int	y;
+	int	z;
 
-	new_s1 = (unsigned char *)s1;
-	new_s2 = (unsigned char *)s2;
-	i = 0;
-	while (i < n)
-	{
-		if (new_s1[i] != new_s2[i])
-			return (new_s1[i] - new_s2[i]);
-		i++;
-	}
-	return (0);
+	x = ft_clamp(pixel.x) * 255;
+	y = ft_clamp(pixel.y) * 255;
+	z = ft_clamp(pixel.z) * 255;
+	return (x << 16 | y << 8 | z);
 }

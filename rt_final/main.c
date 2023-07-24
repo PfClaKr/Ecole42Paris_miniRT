@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 19:02:16 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/23 19:50:49by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/24 23:48:10 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,18 @@
 
 int	main(int ac, char **av)
 {
-	t_list	*objects;
+	t_data	data;
 
-	objects = NULL;
+	data.objects = NULL;
 	if (ac != 2)
 		ft_error("Not good Input.\n", 2);
-	if (parse(&objects, av[1]) == -1)
+	if (parse(&data.objects, av[1]) == -1)
 		ft_error("Not good Input.\n", 2);
-	if (init_objects(&objects) == -1)
+	if (init_objects(&data.objects) == -1)
 	{
-		ft_list_destroy(&objects, &free);
+		ft_list_destroy(&data.objects, &free);
 		ft_error("Something Error. \n", 2);
 	}
-	if (raytracing(objects) == -1)
-	{
-		ft_list_destroy(&objects, &free);
-		ft_error("Something Error. \n", 2);
-	}
-	ft_list_destroy(&objects, &free);
+	prep_rt(&data);
 	return (0);
 }

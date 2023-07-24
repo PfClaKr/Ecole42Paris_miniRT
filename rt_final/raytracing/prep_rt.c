@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   prep_rt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 21:51:57 by ychun             #+#    #+#             */
-/*   Updated: 2021/11/27 22:25:22 by ychun            ###   ########.fr       */
+/*   Created: 2023/07/24 23:45:44 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/24 23:45:53 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "raytracing.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	prep_rt(t_data *data)
 {
-	if (lst == NULL)
-		return ;
-	del(lst->content);
-	free(lst);
+	if (init_mlx(data) == -1)
+		mlx_close(data);
+	raytracing(data->objects, &data->mlx);
+	mlx_loop(data->mlx.mlx_ptr);
+	return (0);
 }

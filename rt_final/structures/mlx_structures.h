@@ -6,12 +6,14 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:13:43 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/23 22:49:11 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/24 18:37:57 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_STRUCTURES_H
 # define MLX_STRUCTURES_H
+
+# include "../mlx/mlx.h"
 
 typedef struct s_img
 {

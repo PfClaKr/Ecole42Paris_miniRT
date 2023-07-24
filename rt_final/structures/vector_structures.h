@@ -6,12 +6,14 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 23:13:28 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/23 23:14:09 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/24 23:54:24 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_STRUCTURES_H
 # define VECTOR_STRUCTURES_H
+
+# include <math.h>
 
 typedef struct s_vec3
 {

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_clamp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 21:41:52 by ychun             #+#    #+#             */
-/*   Updated: 2021/11/29 18:53:42 by ychun            ###   ########.fr       */
+/*   Created: 2023/07/24 19:09:40 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/24 19:11:07 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "utils.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+double	ft_clamp(double x)
 {
-	t_list	*last;
-
-	if (!lst || !new)
-		return ;
-	last = *lst;
-	if (!(*lst))
-		*lst = new;
+	if (x < 0)
+		return (0);
+	else if (x > 1)
+		return (1);
 	else
-	{
-		while (last->next)
-			last = last->next;
-		last->next = new;
-	}
+		return (x);
 }

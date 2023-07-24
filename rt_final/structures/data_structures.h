@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   data_structures.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 21:28:33 by ychun             #+#    #+#             */
-/*   Updated: 2021/11/27 22:29:09 by ychun            ###   ########.fr       */
+/*   Created: 2023/07/24 18:33:24 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/24 18:53:53 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef DATA_STRUCTURES_H
+# define DATA_STRUCTURES_H
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+# include "mlx_structures.h"
+# include "object_structures.h"
+# include "vector_structures.h"
+# include "../list/ft_list.h"
+
+typedef struct s_data
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
-}
+	t_mlx	mlx;
+	t_list	*objects;
+}	t_data;
+
+#endif

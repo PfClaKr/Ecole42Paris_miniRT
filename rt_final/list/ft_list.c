@@ -6,11 +6,25 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 01:19:20 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 01:19:21 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/24 23:55:59 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
+
+void	*ft_list_find(t_list *list, enum e_types type)
+{
+	if (type >= 0 && type <= 6)
+	{
+		while (list)
+		{
+			if (list->id == type)
+				return (list->data);
+			list = list->next;
+		}
+	}
+	return (NULL);
+}
 
 t_list	*ft_list_new(void *data)
 {

@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 01:19:21 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 01:19:22 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/24 23:56:17 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ typedef struct s_list
 t_list	*ft_list_new(void *data);
 int		ft_list_append(t_list **list, t_list *new);
 void	ft_list_destroy(t_list **list, void (*destroy)(void *));
+void	*ft_list_find(t_list *list, enum e_types type);
 
 #endif

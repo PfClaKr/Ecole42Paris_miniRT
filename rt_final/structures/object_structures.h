@@ -6,14 +6,14 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 23:13:24 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/23 23:13:25 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/24 18:35:08 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJECT_STRUCTURES_H
 # define OBJECT_STRUCTURES_H
 
-# include "vector_structures.h"
+# include "data_structures.h"
 
 typedef struct s_ambient_light
 {

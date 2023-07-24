@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 01:18:55 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 01:18:56 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/24 21:15:53 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ char	*get_line(int fd)
 	char	c;
 
 	i = 0;
-	c = '\0';
 	while (1)
 	{
+		c = '\0';
 		r = read(fd, &c, 1);
 		if (c == '\n')
 			tmp[i++] = c;
@@ -44,7 +44,7 @@ char	*get_line(int fd)
 			break ;
 		tmp[i++] = c;
 	}
-	if (i < 1 || r <= 0)
+	if (i < 1 && r <= 0)
 		return (NULL);
 	str = str_normalize(tmp, i);
 	return (str);

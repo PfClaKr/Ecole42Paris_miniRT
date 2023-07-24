@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/24 23:46:37 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/24 23:46:38 by ychun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef UTILS_H
 # define UTILS_H
 
 # include <stdlib.h>
 # include "../structures/vector_structures.h"
+# include "../structures/data_structures.h"
 
 int		count_double_arr(char **arr);
 void	free_double_arr(char **arr);
@@ -30,5 +43,8 @@ t_vec3	vmult(t_vec3 v, double t);
 t_vec3	vmult_(t_vec3 v1, t_vec3 v2);
 t_vec3	vdivide(t_vec3 v, double t);
 float	get_tan(float degree);
+double	ft_clamp(double x);
+int		get_color(t_vec3 pixel);
+void	mlx_pixel_put_img(t_mlx *mlx, int i, int j, int color);
 
 #endif
