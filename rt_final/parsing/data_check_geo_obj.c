@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:47:41 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 23:47:42 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/26 14:22:27 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	data_check_pl(char **data)
 		return (-1);
 	if (data_check_color(data[3]) == -1)
 		return (-1);
-	return (4);
+	return (0);
 }
 
 int	data_check_sp(char **data)
@@ -35,7 +35,7 @@ int	data_check_sp(char **data)
 		return (-1);
 	if (data_check_color(data[3]) == -1)
 		return (-1);
-	return (5);
+	return (0);
 }
 
 int	data_check_cy(char **data)
@@ -52,5 +52,5 @@ int	data_check_cy(char **data)
 		return (-1);
 	if (data_check_color(data[5]) == -1)
 		return (-1);
-	return (6);
+	return (0);
 }

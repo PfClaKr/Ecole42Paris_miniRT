@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 22:47:46 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 22:47:47 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/23 16:39:45 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	parse_object(t_list **objects, char *filename)
 
 int	parse(t_list **objects, char *filename)
 {
+	if (filename_check(filename) == -1)
+		return (-1);
 	if (data_integrity_check(filename) == -1)
 		return (-1);
 	parse_object(objects, filename);

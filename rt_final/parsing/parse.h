@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:38:36 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 18:38:37 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/26 13:59:22 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int		data_check_l(char **data);
 int		data_check_pl(char **data);
 int		data_check_sp(char **data);
 int		data_check_cy(char **data);
+
+int		filename_check(char *filename);
 
 int		data_check_by_id(char **data);
 int		data_integrity_check(char *filename);

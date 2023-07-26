@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:47:47 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 23:47:48 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/26 14:55:10 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	data_check_by_id(char **data)
 	int		ret;
 
 	if (!data || !data[0])
-		return (0);
+		return (-2);
 	id = data[0];
 	ret = -1;
 	if (ft_strcmp(id, "A") == 0)
@@ -41,9 +41,11 @@ int	data_integrity_check(char *filename)
 {
 	int		fd;
 	int		ret;
+	int		unique_obj;
 	char	**data;
 
 	fd = open(filename, O_RDONLY);
+	unique_obj = 0;
 	while (1)
 	{
 		data = parse_get_data(fd);
@@ -51,13 +53,15 @@ int	data_integrity_check(char *filename)
 		if (ret == -1)
 		{
 			free_double_arr(data);
-			close(fd);
-			return (-1);
+			return (close(fd), -1);
 		}
-		else if (ret == 0)
+		else if (ret == -2)
 			break ;
+		unique_obj += ret;
 		free_double_arr(data);
 	}
 	close(fd);
+	if (unique_obj != 37)
+		return (-1);
 	return (0);
 }

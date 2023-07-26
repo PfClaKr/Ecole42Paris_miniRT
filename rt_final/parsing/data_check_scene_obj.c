@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:47:45 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 23:47:46 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/26 14:54:47 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	data_check_a(char **data)
 		return (-1);
 	if (data_check_color(data[2]) == -1)
 		return (-1);
-	return (1);
+	return (11);
 }
 
 int	data_check_c(char **data)
@@ -33,7 +33,7 @@ int	data_check_c(char **data)
 		return (-1);
 	if (data_check_fov(data[3]) == -1)
 		return (-1);
-	return (2);
+	return (12);
 }
 
 int	data_check_l(char **data)
@@ -46,5 +46,5 @@ int	data_check_l(char **data)
 		return (-1);
 	if (data_check_color(data[3]) == -1)
 		return (-1);
-	return (3);
+	return (14);
 }
