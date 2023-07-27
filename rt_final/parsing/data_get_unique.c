@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:47:28 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 23:47:29 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/27 03:26:03 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_vec3	data_get_orivec(char *data)
 	orivec.x = ft_atof(tmp[0]);
 	orivec.y = ft_atof(tmp[1]);
 	orivec.z = ft_atof(tmp[2]);
+	orivec = vunit(orivec);
 	free_double_arr(tmp);
 	return (orivec);
 }

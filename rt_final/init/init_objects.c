@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:58:57 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 23:27:19 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/27 01:04:11 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ t_ray	init_ray(t_camera *cam, int u, int v)
 	t_ray	ray;
 	t_vec3	horizontal;
 	t_vec3	vertical;
-	t_vec3	vp_point;
+	t_vec3	temp_orivec;
 
 	ray.pos = cam->pos;
 	horizontal = vmult(cam->right_normal, (double)u);
 	vertical = vmult(cam->up_normal, (double)v);
-	vp_point = vplus(cam->left_bottom, horizontal);
-	vp_point = vplus(vp_point, vertical);
-	ray.orivec = vunit(vminus(vp_point, ray.pos));
+	temp_orivec = vplus(cam->left_bottom, horizontal);
+	temp_orivec = vplus(temp_orivec, vertical);
+	ray.orivec = vunit(vminus(temp_orivec, ray.pos));
 	return (ray);
 }

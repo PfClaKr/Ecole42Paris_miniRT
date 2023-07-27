@@ -6,7 +6,7 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/07/24 23:55:00 by ychun            ###   ########.fr        #
+#    Updated: 2023/07/26 16:34:19 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS =	main.c \
 		parsing/data_check_scene_obj.c \
 		parsing/data_check_geo_obj.c \
 		parsing/data_integrity_check.c \
+		parsing/filename_check.c \
 		parsing/data_get_common.c \
 		parsing/data_get_unique.c \
 		parsing/parse_geo_obj.c \
@@ -33,9 +34,12 @@ SRCS =	main.c \
 		raytracing/prep_rt.c \
 		raytracing/raytracing.c \
 		raytracing/hit_sphere.c \
+		raytracing/hit_plane.c \
+		raytracing/hit_cylinder.c \
 		\
 		string/ft_strlen.c \
 		string/ft_strcpy.c \
+		string/ft_strrchr.c \
 		string/ft_strstrip.c \
 		string/ft_strcmp.c \
 		string/ft_split.c \

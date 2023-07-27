@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Debug",
 			"program": "miniRT",
-			"args": "scene/basic.sphere.45.rt",
+			"args": "scene/basic.cylinder.0.rt",
 			"cwd": "${workspaceFolder}"
 		}
 	]
