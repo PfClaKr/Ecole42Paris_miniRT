@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:46:00 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 23:46:01 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/27 15:43:01 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	data_check_ratio(char *data)
 
 int	data_check_color(char *data)
 {
-	int		color[3];
+	t_vec3		color;
 	char	**tmp;
 
 	tmp = ft_split(data, ',');
@@ -34,20 +34,20 @@ int	data_check_color(char *data)
 		return (free_double_arr(tmp), -1);
 	if (!ft_isint(tmp[0]) || !ft_isint(tmp[1]) || !ft_isint(tmp[2]))
 		return (free_double_arr(tmp), -1);
-	color[0] = ft_atoi(tmp[0]);
-	color[1] = ft_atoi(tmp[1]);
-	color[2] = ft_atoi(tmp[2]);
+	color.x = ft_atoi(tmp[0]);
+	color.y = ft_atoi(tmp[1]);
+	color.z = ft_atoi(tmp[2]);
 	free_double_arr(tmp);
-	if ((color[0] < 0 || color[0] > 255)
-		|| (color[1] < 0 || color[1] > 255)
-		|| (color[2] < 0 || color[2] > 255))
+	if ((color.x < 0 || color.x > 255)
+		|| (color.y < 0 || color.y > 255)
+		|| (color.z < 0 || color.z > 255))
 		return (-1);
 	return (0);
 }
 
 int	data_check_pos(char *data)
 {
-	int		pos[3];
+	t_vec3		pos;
 	char	**tmp;
 
 	tmp = ft_split(data, ',');
@@ -55,13 +55,13 @@ int	data_check_pos(char *data)
 		return (free_double_arr(tmp), -1);
 	if (!ft_isdouble(tmp[0]) || !ft_isdouble(tmp[1]) || !ft_isdouble(tmp[2]))
 		return (free_double_arr(tmp), -1);
-	pos[0] = ft_atoi(tmp[0]);
-	pos[1] = ft_atoi(tmp[1]);
-	pos[2] = ft_atoi(tmp[2]);
+	pos.x = ft_atoi(tmp[0]);
+	pos.y = ft_atoi(tmp[1]);
+	pos.z = ft_atoi(tmp[2]);
 	free_double_arr(tmp);
-	if ((pos[0] < -1000 || pos[0] > 1000)
-		|| (pos[1] < -1000 || pos[1] > 1000)
-		|| (pos[2] < -1000 || pos[2] > 1000))
+	if ((pos.x < -1000 || pos.x > 1000)
+		|| (pos.y < -1000 || pos.y > 1000)
+		|| (pos.z < -1000 || pos.z > 1000))
 		return (-1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:46:03 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/24 23:46:04 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/27 15:46:03 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	data_check_orivec(char *data)
 {
-	double	ori[3];
+	t_vec3		ori;
 	char	**tmp;
 
 	tmp = ft_split(data, ',');
@@ -22,13 +22,15 @@ int	data_check_orivec(char *data)
 		return (free_double_arr(tmp), -1);
 	if (!ft_isdouble(tmp[0]) || !ft_isdouble(tmp[1]) || !ft_isdouble(tmp[2]))
 		return (free_double_arr(tmp), -1);
-	ori[0] = ft_atof(tmp[0]);
-	ori[1] = ft_atof(tmp[1]);
-	ori[2] = ft_atof(tmp[2]);
+	ori.x = ft_atof(tmp[0]);
+	ori.y = ft_atof(tmp[1]);
+	ori.z = ft_atof(tmp[2]);
 	free_double_arr(tmp);
-	if ((ori[0] < -1.0 || ori[0] > 1.0)
-		|| (ori[1] < -1.0 || ori[1] > 1.0)
-		|| (ori[2] < -1.0 || ori[2] > 1.0))
+	if (vlength(ori) == 0)
+		return (-1);
+	if ((ori.x < -1.0 || ori.x > 1.0)
+		|| (ori.y < -1.0 || ori.y > 1.0)
+		|| (ori.z < -1.0 || ori.z > 1.0))
 		return (-1);
 	return (0);
 }
