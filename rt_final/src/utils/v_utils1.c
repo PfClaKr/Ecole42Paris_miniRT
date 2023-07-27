@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 00:29:55 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/23 20:42:24 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/27 12:57:15 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,12 @@ t_vec3	vcross(t_vec3 v1, t_vec3 v2)
 	return (tmp);
 }
 
+// if len is 0, its unexists unit vector.
 t_vec3	vunit(t_vec3 v)
 {
 	double	len;
 
 	len = vlength(v);
-	if (len == 0)
-		ft_error("Error : Devider is 0\n", 2);
 	v.x /= len;
 	v.y /= len;
 	v.z /= len;

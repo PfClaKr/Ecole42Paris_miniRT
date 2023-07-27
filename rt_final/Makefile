@@ -6,61 +6,63 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/07/26 16:34:19 by ychun            ###   ########.fr        #
+#    Updated: 2023/07/27 22:12:38 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 SRCS =	main.c \
 		\
-		init/init_objects.c \
-		init/init_mlx.c \
+		src/init/init_objects.c \
+		src/init/init_mlx.c \
+		src/init/init_ray.c \
 		\
-		list/ft_list.c \
+		src/list/ft_list.c \
 		\
-		parsing/parse_get_data.c \
-		parsing/data_check_common.c \
-		parsing/data_check_unique.c \
-		parsing/data_check_scene_obj.c \
-		parsing/data_check_geo_obj.c \
-		parsing/data_integrity_check.c \
-		parsing/filename_check.c \
-		parsing/data_get_common.c \
-		parsing/data_get_unique.c \
-		parsing/parse_geo_obj.c \
-		parsing/parse_scene_obj.c \
-		parsing/parse.c \
+		src/parsing/parse_get_data.c \
+		src/parsing/data_check_common.c \
+		src/parsing/data_check_unique.c \
+		src/parsing/data_check_scene_obj.c \
+		src/parsing/data_check_geo_obj.c \
+		src/parsing/data_integrity_check.c \
+		src/parsing/filename_check.c \
+		src/parsing/data_get_common.c \
+		src/parsing/data_get_unique.c \
+		src/parsing/parse_geo_obj.c \
+		src/parsing/parse_scene_obj.c \
+		src/parsing/parse.c \
 		\
-		raytracing/prep_rt.c \
-		raytracing/raytracing.c \
-		raytracing/hit_sphere.c \
-		raytracing/hit_plane.c \
-		raytracing/hit_cylinder.c \
+		src/raytracing/raytracing.c \
+		src/raytracing/hit_sphere.c \
+		src/raytracing/hit_plane.c \
+		src/raytracing/hit_cylinder.c \
+		src/raytracing/light_model.c \
+		src/raytracing/light_model_phong.c \
 		\
-		string/ft_strlen.c \
-		string/ft_strcpy.c \
-		string/ft_strrchr.c \
-		string/ft_strstrip.c \
-		string/ft_strcmp.c \
-		string/ft_split.c \
-		string/ft_cntchar.c \
-		string/tab_to_space.c \
-		string/get_line.c \
+		src/string/ft_strlen.c \
+		src/string/ft_strcpy.c \
+		src/string/ft_strrchr.c \
+		src/string/ft_strstrip.c \
+		src/string/ft_strcmp.c \
+		src/string/ft_split.c \
+		src/string/ft_cntchar.c \
+		src/string/tab_to_space.c \
+		src/string/get_line.c \
 		\
-		utils/count_double_arr.c \
-		utils/free_double_arr.c \
-		utils/ft_atoi.c \
-		utils/ft_atof.c \
-		utils/ft_isint.c \
-		utils/ft_error.c \
-		utils/ft_isdouble.c \
-		utils/v_utils1.c \
-		utils/v_utils2.c \
-		utils/v_utils3.c \
-		utils/get_tan.c \
-		utils/ft_clamp.c \
-		utils/get_color.c \
-		utils/mlx_utils.c
+		src/utils/count_double_arr.c \
+		src/utils/free_double_arr.c \
+		src/utils/ft_atoi.c \
+		src/utils/ft_atof.c \
+		src/utils/ft_isint.c \
+		src/utils/ft_error.c \
+		src/utils/ft_isdouble.c \
+		src/utils/v_utils1.c \
+		src/utils/v_utils2.c \
+		src/utils/v_utils3.c \
+		src/utils/get_tan.c \
+		src/utils/ft_clamp.c \
+		src/utils/get_color.c \
+		src/utils/mlx_utils.c
 
 
 OBJS = $(SRCS:.c=.o)

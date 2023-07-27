@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 19:02:16 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/27 15:50:11 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:33:19 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-#include "parsing/parse.h"
-#include "raytracing/raytracing.h"
-#include "init/init.h"
+#include "src/parsing/parse.h"
+#include "src/raytracing/raytracing.h"
+#include "src/init/init.h"
 
 int	main(int ac, char **av)
 {
@@ -33,6 +33,9 @@ int	main(int ac, char **av)
 		ft_list_destroy(&data.objects, &free);
 		ft_error("Error\nobject initialization error\n", 2);
 	}
-	prep_rt(&data);
+	if (init_mlx(&data) == -1)
+		mlx_close(&data);
+	raytracing(data.objects, &data.mlx);
+	mlx_loop(data.mlx.mlx_ptr);
 	return (0);
 }

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prep_rt.c                                          :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 23:45:44 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/25 01:20:07 by ychun            ###   ########.fr       */
+/*   Created: 2023/06/05 00:01:30 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/27 20:29:10 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracing.h"
+#include "utils.h"
+#include <unistd.h>
+#include "../string/ft_string.h"
 
-int	prep_rt(t_data *data)
+void	ft_error(char *str, int status)
 {
-	t_ray	ray;
-
-	if (init_mlx(data) == -1)
-		mlx_close(data);
-	raytracing(data->objects, &data->mlx, ray);
-	mlx_loop(data->mlx.mlx_ptr);
-	return (0);
+	if (!str)
+		write(status, "Error\n", 6);
+	else
+		write(status, str, ft_strlen(str));
+	exit(-1);
 }
