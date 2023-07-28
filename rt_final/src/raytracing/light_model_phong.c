@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 22:11:13 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/27 23:19:48 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/28 03:40:56by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,30 @@ static t_vec3	phong_model_diffuse(t_light *obj,
 	t_vec3	diffuse_color;
 
 	diffuse_strength = fmax(vdot(rec->normal, light_ray.orivec), 0.0);
-	diffuse_color = vmult(obj->color, diffuse_strength);
+	diffuse_color = vdivide(obj->color, 255);
+	diffuse_color = vmult(diffuse_color, obj->ratio);
+	diffuse_color = vmult(diffuse_color, diffuse_strength);
+	diffuse_color = vmult_(diffuse_color, rec->color);
 	return (diffuse_color);
 }
 
-t_vec3	phong_model(t_list *objects, t_ray camera_ray,
-	t_hit_record *rec, t_ambient_light *amblight)
+t_vec3	phong_model(t_list *objects, t_ray camera_ray, t_hit_record *rec)
 {
 	t_ray	light_ray;
-	double	light_len;
 	t_vec3	diffuse;
 	t_vec3	specular;
+	t_vec3	light_color;
 	t_light	*obj;
 
 	obj = (t_light *)ft_list_find(objects, L);
 	light_ray = init_light_ray(obj, rec);
-	light_len = (vlength(vminus(obj->pos, rec->p)));
-	if (phong_model_shadow(objects, light_ray, light_len))
+	if (phong_model_shadow(objects, light_ray,
+			vlength(vminus(obj->pos, rec->p))))
 		return (vec3(0, 0, 0));
 	diffuse = phong_model_diffuse(obj, rec, light_ray);
 	specular = phong_model_specular(obj, camera_ray, rec, light_ray);
-	return (vmult(vplus(vplus(amblight->color, diffuse), specular),
-			obj->ratio));
+	light_color = vplus(diffuse, specular);
+	//light_color = vmult(light_color, obj->ratio);
+	//light_color = vplus(light_color, obj->color);
+	return (light_color);
 }

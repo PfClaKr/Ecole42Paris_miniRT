@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:58:59 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/27 23:12:51 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/28 00:26:59 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../../settings.h"
 # include "../raytracing/raytracing.h"
 
-typedef struct s_hit_record t_hit_record;
+typedef struct s_hit_record	t_hit_record;
 
 int		init_camera(t_camera *obj);
 int		init_sphere(t_sphere *obj);

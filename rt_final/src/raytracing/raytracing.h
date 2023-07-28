@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:58:50 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/27 23:20:15 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/28 02:38:24 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int		hit_sphere(t_sphere *obj, t_ray ray, t_hit_record *rec);
 int		hit_plane(t_plane *obj, t_ray ray, t_hit_record *rec);
 int		hit_cylinder(t_cylinder *obj, t_ray ray, t_hit_record *rec);
 t_vec3	light_model(t_list *objects, t_ray camera_ray, t_hit_record *rec);
-t_vec3	phong_model(t_list *objects, t_ray camera_ray,
-			t_hit_record *rec, t_ambient_light *amblight);
+t_vec3	phong_model(t_list *objects, t_ray camera_ray, t_hit_record *rec);
 
 #endif
