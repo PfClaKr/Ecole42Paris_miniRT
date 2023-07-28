@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:59:20 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/27 22:27:08 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/28 21:55:03 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 # define RENDER_BY_PIXEL 1
 
 // Shininess value
-# define SHININESS_VALUE 128.0
+# define SHININESS_VALUE 64.0
 
 // Specular strength
-# define SPECULAR_STRENGTH 1.0
+# define SPECULAR_STRENGTH 1
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:47:47 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/26 14:55:10 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/07/29 00:39:00 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	data_integrity_check(char *filename)
 		free_double_arr(data);
 	}
 	close(fd);
-	if (unique_obj != 37)
+	if (unique_obj != 23)
 		return (-1);
 	return (0);
 }

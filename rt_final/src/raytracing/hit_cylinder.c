@@ -19,20 +19,18 @@ static void	set_face_normal(t_ray ray, t_hit_record *rec)
 		rec->normal = vmult(rec->normal, -1);
 }
 
-int	get_cy_normal(t_cylinder *obj, t_hit_record *rec)
+int	get_cy_normal(t_cylinder *obj, t_hit_record *rec, t_vec3 p)
 {
 	double	hit_height;
 	double	max_height;
 	t_vec3	hit_pos;
-	t_vec3	ret;
 
-	hit_height = vdot(vminus(rec->p, obj->pos), obj->orivec);
+	hit_height = vdot(vminus(p, obj->pos), obj->orivec);
 	max_height = obj->height / 2;
 	if (fabs(hit_height) > max_height)
 		return (0);
 	hit_pos = vplus(obj->pos, vmult(obj->orivec, hit_height));
-	ret = vunit(vminus(rec->p, hit_pos));
-	rec->normal = ret;
+	rec->normal = vunit(vminus(p, hit_pos));
 	return (1);
 }
 
@@ -55,10 +53,10 @@ int	hit_cy_side(t_cylinder *obj, t_ray ray, t_hit_record *rec)
 		if (num.root < rec->tmin || rec->tmax < num.root)
 			return (0);
 	}
-	rec->t = num.root;
-	rec->p = vplus(ray.pos, vmult(ray.orivec, num.root));
-	if (!get_cy_normal(obj, rec))
+	if (!get_cy_normal(obj, rec, vplus(ray.pos, vmult(ray.orivec, num.root))))
 		return (0);
+	rec->p = vplus(ray.pos, vmult(ray.orivec, num.root));
+	rec->t = num.root;
 	rec->albedo = vec3(ALBEDO_R, ALBEDO_G, ALBEDO_B);
 	rec->color = obj->color;
 	set_face_normal(ray, rec);
@@ -97,7 +95,7 @@ int	hit_cylinder(t_cylinder *obj, t_ray ray, t_hit_record *rec)
 	int	ret;
 
 	ret = 0;
-	ret += hit_cy_cap(obj, ray, rec, obj->height / 2);
+	ret += hit_cy_cap(obj, ray, rec, (obj->height) / 2);
 	ret += hit_cy_cap(obj, ray, rec, -(obj->height / 2));
 	ret += hit_cy_side(obj, ray, rec);
 	return (ret);
