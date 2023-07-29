@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 22:11:13 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/28 23:47:34y ychun            ###   ########.fr       */
+/*   Created: 2023/07/29 17:31:52 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/29 18:26:16 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ static t_vec3	phong_model_specular(t_light *obj, t_ray camera_ray,
 	view_dir = vunit(vmult(camera_ray.orivec, -1));
 	rev_vec = vmult(light_ray.orivec, -1);
 	reflect_dir = vminus(rev_vec,
-			vmult(rec->normal, vdot(rev_vec, rec->normal) * 2));
-	specular = vmult(vmult(obj->color, SPECULAR_STRENGTH),
-			pow(fmax(vdot(view_dir, reflect_dir), 0.0), SHININESS_VALUE));
+			vmult(rec->normal, vdot(rev_vec, rec->normal) * SPECULAR_STRENGTH));
+	specular = vmult(vmult(obj->color, obj->ratio),
+			pow(fmax(vdot(view_dir, reflect_dir), 0.0),
+				SHININESS_VALUE / obj->ratio));
 	return (specular);
 }
 
@@ -52,6 +53,7 @@ static t_vec3	phong_model_diffuse(t_light *obj,
 	t_vec3	diffuse_color;
 
 	diffuse_strength = fmax(vdot(rec->normal, light_ray.orivec), 0.0);
+	diffuse_strength = pow(diffuse_strength, LIGHT_SHARPNESS);
 	diffuse_color = vdivide(obj->color, 255);
 	diffuse_color = vmult(diffuse_color, obj->ratio);
 	diffuse_color = vmult(diffuse_color, diffuse_strength);
@@ -73,5 +75,6 @@ t_vec3	phong_model(t_list *objects, t_light *obj,
 	diffuse = phong_model_diffuse(obj, rec, light_ray);
 	specular = phong_model_specular(obj, camera_ray, rec, light_ray);
 	light_color = vplus(diffuse, specular);
+	light_color = vmult_(light_color, vec3(ALBEDO_R, ALBEDO_G, ALBEDO_B));
 	return (light_color);
 }

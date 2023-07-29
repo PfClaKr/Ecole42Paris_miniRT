@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/25 15:48:31 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/26 16:09:00ychun            ###   ########.fr       */
+/*   Created: 2023/07/29 14:17:27 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/29 15:24:33 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	hit_cy_side(t_cylinder *obj, t_ray ray, t_hit_record *rec)
 		return (0);
 	rec->p = vplus(ray.pos, vmult(ray.orivec, num.root));
 	rec->t = num.root;
-	rec->albedo = vec3(ALBEDO_R, ALBEDO_G, ALBEDO_B);
 	rec->color = obj->color;
 	set_face_normal(ray, rec);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:33:55 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/27 21:21:36 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 15:24:45 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	hit_sphere(t_sphere *obj, t_ray ray, t_hit_record *rec)
 	rec->t = num.root;
 	rec->p = vplus(ray.pos, vmult(ray.orivec, num.root));
 	rec->normal = vdivide(vminus(rec->p, obj->pos), obj->radius);
-	rec->albedo = vec3(ALBEDO_R, ALBEDO_G, ALBEDO_B);
 	rec->color = obj->color;
 	set_face_normal(ray, rec);
 	return (1);

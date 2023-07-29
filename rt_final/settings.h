@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:59:20 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/28 21:55:03 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 18:29:27 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,16 @@
 // 0 or 1, 0 is default(by img)
 # define RENDER_BY_PIXEL 1
 
-// Shininess value
+// Shininess value 64.0 is default 0.0 ~ infinit 
 # define SHININESS_VALUE 64.0
 
-// Specular strength
-# define SPECULAR_STRENGTH 1
+// Specular strength 2 is default 0.0 ~ 2.0 value
+# define SPECULAR_STRENGTH 2.0
+
+// Light sharpness 4 is default 0.0 ~ infinit
+# define LIGHT_SHARPNESS 4.0
+
+// Amblight strength 3 is default 0.1 ~ infinit
+# define AMBLIGHT_STRENGTH 3.0
 
 #endif

@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Debug",
 			"program": "miniRT",
-			"args": "scene/basic.cylinder.0copy.rt",
+			"args": "scene/test_01_obj.rt",
 			"cwd": "${workspaceFolder}"
 		}
 	]

@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 00:01:30 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/27 20:29:10 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 15:32:52 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 void	ft_error(char *str, int status)
 {
 	if (!str)
-		write(status, "Error\n", 6);
+		write(2, "Error\n", 6);
 	else
-		write(status, str, ft_strlen(str));
-	exit(-1);
+		write(2, str, ft_strlen(str));
+	if (status)
+		exit(-1);
 }

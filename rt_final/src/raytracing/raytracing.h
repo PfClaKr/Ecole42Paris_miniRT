@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:58:50 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 00:54:00 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 15:24:50 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_hit_record
 	double	tmax;
 	double	t;
 	int		front_face;
-	t_vec3	albedo;
 	t_vec3	color;
 }	t_hit_record;
 

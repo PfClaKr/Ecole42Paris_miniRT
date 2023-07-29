@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:46:00 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/27 19:20:49 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 14:17:35 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	data_check_color(char *data)
 int	data_check_pos(char *data)
 {
 	t_vec3		pos;
-	char	**tmp;
+	char		**tmp;
 
 	tmp = ft_split(data, ',');
 	if (!tmp || count_double_arr(tmp) != 3 || ft_cntchar(data, ',') != 2)
