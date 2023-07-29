@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_model_phong.c                                :+:      :+:    :+:   */
+/*   light_model_phong_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:31:52 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 00:42:29 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 22:43:56 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracing.h"
+#include "raytracing_bonus.h"
 
 static int	phong_model_shadow(t_list *objects, t_light *obj, t_hit_record *rec)
 {
@@ -28,6 +28,24 @@ static int	phong_model_shadow(t_list *objects, t_light *obj, t_hit_record *rec)
 	return (0);
 }
 
+static t_vec3	phong_model_specular(t_light *obj, t_ray camera_ray,
+	t_hit_record *rec, t_ray light_ray)
+{
+	t_vec3	view_dir;
+	t_vec3	rev_vec;
+	t_vec3	reflect_dir;
+	t_vec3	specular;
+
+	view_dir = vunit(vmult(camera_ray.orivec, -1));
+	rev_vec = vmult(light_ray.orivec, -1);
+	reflect_dir = vminus(rev_vec,
+			vmult(rec->normal, vdot(rev_vec, rec->normal) * SPECULAR_STRENGTH));
+	specular = vmult(vmult(obj->color, obj->ratio),
+			pow(fmax(vdot(view_dir, reflect_dir), 0.0),
+				SHININESS_VALUE / obj->ratio));
+	return (specular);
+}
+
 static t_vec3	phong_model_diffuse(t_light *obj,
 	t_hit_record *rec, t_ray light_ray)
 {
@@ -43,15 +61,20 @@ static t_vec3	phong_model_diffuse(t_light *obj,
 	return (diffuse_color);
 }
 
-t_vec3	phong_model(t_list *objects, t_light *obj, t_hit_record *rec)
+t_vec3	phong_model(t_list *objects, t_light *obj,
+	t_ray camera_ray, t_hit_record *rec)
 {
 	t_ray	light_ray;
+	t_vec3	diffuse;
+	t_vec3	specular;
 	t_vec3	light_color;
 
 	light_ray = init_light_ray(obj, rec);
 	if (phong_model_shadow(objects, obj, rec))
 		return (vec3(0, 0, 0));
-	light_color = phong_model_diffuse(obj, rec, light_ray);
+	diffuse = phong_model_diffuse(obj, rec, light_ray);
+	specular = phong_model_specular(obj, camera_ray, rec, light_ray);
+	light_color = vplus(diffuse, specular);
 	light_color = vmult_(light_color, vec3(ALBEDO_R, ALBEDO_G, ALBEDO_B));
 	return (light_color);
 }

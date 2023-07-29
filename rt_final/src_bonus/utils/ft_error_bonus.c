@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_structures.h                                   :+:      :+:    :+:   */
+/*   ft_error_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/23 21:13:43 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 23:12:19 by ychun            ###   ########.fr       */
+/*   Created: 2023/06/05 00:01:30 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/29 22:47:02 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_STRUCTURES_H
-# define MLX_STRUCTURES_H
+#include "utils_bonus.h"
+#include <unistd.h>
+#include "../string/ft_string_bonus.h"
 
-# include "../../mlx/mlx.h"
-
-typedef struct s_img
+void	ft_error(char *str, int status)
 {
-	void	*img_ptr;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_img;
-
-typedef struct s_mlx
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-}	t_mlx;
-
-#endif
+	if (!str)
+		write(2, "Error\n", 6);
+	else
+		write(2, str, ft_strlen(str));
+	if (status)
+		exit(-1);
+}

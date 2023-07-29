@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_structures.h                                   :+:      :+:    :+:   */
+/*   tab_to_space_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/23 21:13:43 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 23:12:19 by ychun            ###   ########.fr       */
+/*   Created: 2023/07/24 01:18:37 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/29 22:45:04 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_STRUCTURES_H
-# define MLX_STRUCTURES_H
+#include "ft_string_bonus.h"
 
-# include "../../mlx/mlx.h"
-
-typedef struct s_img
+char	*tab_to_space(char *str)
 {
-	void	*img_ptr;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_img;
+	int	i;
 
-typedef struct s_mlx
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-}	t_mlx;
-
-#endif
+	if (!str)
+		return (NULL);
+	i = -1;
+	while (str[++i])
+		if (str[i] == '\t' || str[i] == '\v' || str[i] == '\n')
+			str[i] = ' ';
+	return (str);
+}

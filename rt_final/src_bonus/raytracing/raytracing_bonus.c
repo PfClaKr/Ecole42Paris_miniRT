@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raytracing.c                                       :+:      :+:    :+:   */
+/*   raytracing_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 22:54:27 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 00:44:13 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/30 00:40:53 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracing.h"
+#include "raytracing_bonus.h"
 
 int	hit_object(t_list *obj, t_ray ray, t_hit_record *rec)
 {
@@ -39,7 +39,7 @@ static t_vec3	ray_color(t_list *obj, t_ray ray)
 	rec.tmin = EPSILON;
 	rec.tmax = INFINITY;
 	if (hit_object(obj, ray, &rec))
-		return (light_model(obj, &rec));
+		return (light_model(obj, ray, &rec));
 	return (vec3(0, 0, 0));
 }
 

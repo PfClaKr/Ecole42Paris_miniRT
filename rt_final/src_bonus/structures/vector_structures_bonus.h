@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_structures.h                                   :+:      :+:    :+:   */
+/*   vector_structures_bonus.h                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/23 21:13:43 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 23:12:19 by ychun            ###   ########.fr       */
+/*   Created: 2023/07/23 23:13:28 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/29 22:46:35 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_STRUCTURES_H
-# define MLX_STRUCTURES_H
+#ifndef VECTOR_STRUCTURES_BONUS_H
+# define VECTOR_STRUCTURES_BONUS_H
 
-# include "../../mlx/mlx.h"
+# include <math.h>
 
-typedef struct s_img
+typedef struct s_vec3
 {
-	void	*img_ptr;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_img;
+	double	x;
+	double	y;
+	double	z;
+}	t_vec3;
 
-typedef struct s_mlx
+typedef struct s_ray
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-}	t_mlx;
+	t_vec3	pos;
+	t_vec3	orivec;
+}	t_ray;
 
 #endif

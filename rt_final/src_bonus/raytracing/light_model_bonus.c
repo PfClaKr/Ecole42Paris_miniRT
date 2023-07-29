@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_model.c                                      :+:      :+:    :+:   */
+/*   light_model_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:21:10 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 00:43:50 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 22:43:53 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raytracing.h"
+#include "raytracing_bonus.h"
 
 //changed ray to camera_ray
-t_vec3	light_model(t_list *objects, t_hit_record *rec)
+t_vec3	light_model(t_list *objects, t_ray camera_ray, t_hit_record *rec)
 {
 	t_vec3			light_color;
 	t_ambient_light	*amblight;
@@ -30,8 +30,10 @@ t_vec3	light_model(t_list *objects, t_hit_record *rec)
 	while (temp)
 	{
 		if (temp->id == L)
+		{
 			light_color = vplus(light_color, phong_model(objects,
-						(t_light *)temp->data, rec));
+						(t_light *)temp->data, camera_ray, rec));
+		}
 		temp = temp->next;
 	}
 	light_color = vplus(light_color, amblight_color);

@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 19:02:16 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 15:33:04 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/30 00:46:18 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-#include "src/parsing/parse.h"
-#include "src/raytracing/raytracing.h"
-#include "src/init/init.h"
+#include "parsing/parse.h"
+#include "raytracing/raytracing.h"
+#include "init/init.h"
 
 int	main(int ac, char **av)
 {

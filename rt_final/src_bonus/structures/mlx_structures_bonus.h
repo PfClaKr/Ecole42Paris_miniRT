@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_structures.h                                   :+:      :+:    :+:   */
+/*   mlx_structures_bonus.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:13:43 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 23:12:19 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 22:45:46 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_STRUCTURES_H
-# define MLX_STRUCTURES_H
+#ifndef MLX_STRUCTURES_BONUS_H
+# define MLX_STRUCTURES_BONUS_H
 
 # include "../../mlx/mlx.h"
 

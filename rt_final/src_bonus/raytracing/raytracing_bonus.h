@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raytracing.h                                       :+:      :+:    :+:   */
+/*   raytracing_bonus.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:58:50 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 00:44:00 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/29 22:44:14 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYTRACING_H
-# define RAYTRACING_H
+#ifndef RAYTRACING_BONUS_H
+# define RAYTRACING_BONUS_H
 
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include "../init/init.h"
-# include "../structures/data_structures.h"
+# include "../init/init_bonus.h"
+# include "../structures/data_structures_bonus.h"
 
 # define EPSILON 1e-6
 
@@ -49,7 +49,8 @@ int		hit_object(t_list *obj, t_ray ray, t_hit_record *rec);
 int		hit_sphere(t_sphere *obj, t_ray ray, t_hit_record *rec);
 int		hit_plane(t_plane *obj, t_ray ray, t_hit_record *rec);
 int		hit_cylinder(t_cylinder *obj, t_ray ray, t_hit_record *rec);
-t_vec3	light_model(t_list *objects, t_hit_record *rec);
-t_vec3	phong_model(t_list *objects, t_light *obj, t_hit_record *rec);
+t_vec3	light_model(t_list *objects, t_ray camera_ray, t_hit_record *rec);
+t_vec3	phong_model(t_list *objects, t_light *obj,
+			t_ray camera_ray, t_hit_record *rec);
 
 #endif

@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_structures.h                                   :+:      :+:    :+:   */
+/*   ft_list_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/23 21:13:43 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 23:12:19 by ychun            ###   ########.fr       */
+/*   Created: 2023/07/24 01:19:21 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/29 22:42:04 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_STRUCTURES_H
-# define MLX_STRUCTURES_H
+#ifndef FT_LIST_BONUS_H
+# define FT_LIST_BONUS_H
 
-# include "../../mlx/mlx.h"
+# include <stdlib.h>
 
-typedef struct s_img
+enum	e_types
 {
-	void	*img_ptr;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_img;
+	A,
+	C,
+	L,
+	SP,
+	PL,
+	CY,
+};
 
-typedef struct s_mlx
+typedef struct s_list
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-}	t_mlx;
+	enum e_types	id;
+	void			*data;
+	struct s_list	*next;
+}	t_list;
+
+t_list	*ft_list_new(void *data);
+int		ft_list_append(t_list **list, t_list *new);
+void	ft_list_destroy(t_list **list, void (*destroy)(void *));
+void	*ft_list_find(t_list *list, enum e_types type);
 
 #endif

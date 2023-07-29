@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_structures.h                                   :+:      :+:    :+:   */
+/*   data_structures_bonus.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/23 21:13:43 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 23:12:19 by ychun            ###   ########.fr       */
+/*   Created: 2023/07/24 18:33:24 by ychun             #+#    #+#             */
+/*   Updated: 2023/07/29 22:45:21 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_STRUCTURES_H
-# define MLX_STRUCTURES_H
+#ifndef DATA_STRUCTURES_BONUS_H
+# define DATA_STRUCTURES_BONUS_H
 
-# include "../../mlx/mlx.h"
+# include "mlx_structures_bonus.h"
+# include "object_structures_bonus.h"
+# include "vector_structures_bonus.h"
+# include "../list/ft_list_bonus.h"
 
-typedef struct s_img
+typedef struct s_data
 {
-	void	*img_ptr;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_img;
-
-typedef struct s_mlx
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-}	t_mlx;
+	t_mlx	mlx;
+	t_list	*objects;
+}	t_data;
 
 #endif
