@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 22:54:27 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 23:07:47 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/31 01:30:11 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,11 @@ static t_vec3	ray_color(t_list *objects, t_ray ray)
 
 void	rendering(t_mlx *mlx, int i, int j, double color)
 {
+	printf("\rOn the way... %d %%", (j + 1) * 100 / HEIGHT);
 	if (RENDER_BY_PIXEL)
-	{
-		printf("\rOn the way... %d %%", (j + 1) * 100 / HEIGHT);
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, i, j, color);
-	}
 	else
-	{
-		printf("\rOn the way... %d %%", (j + 1) * 100 / HEIGHT);
 		mlx_pixel_put_img(mlx, i, j, color);
-	}
 }
 
 void	raytracing(t_list *objects, t_mlx *mlx)
@@ -81,4 +76,5 @@ void	raytracing(t_list *objects, t_mlx *mlx)
 	if (!RENDER_BY_PIXEL)
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr,
 			mlx->img.img_ptr, 0, 0);
+	printf("\nDone!\n");
 }

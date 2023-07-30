@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 22:54:27 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 23:08:52 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/31 01:30:17 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	raytracing(t_list *objects, t_mlx *mlx)
 		}
 		--j;
 	}
-	printf("\nDone!\n");
 	if (!RENDER_BY_PIXEL)
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr,
 			mlx->img.img_ptr, 0, 0);
+	printf("\nDone!\n");
 }
