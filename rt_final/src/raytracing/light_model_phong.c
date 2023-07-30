@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:31:52 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 00:42:29 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/30 22:33:57 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,19 @@ static t_vec3	phong_model_diffuse(t_light *obj,
 {
 	double	diffuse_strength;
 	t_vec3	diffuse_color;
+	double	light_len;
+	double	light_len_ratio;
 
+	light_len = vlength(vminus(obj->pos, rec->p));
+	light_len_ratio = fmax(1 - (light_len
+				/ (obj->ratio * LIGHT_STRENGTH)), 0.0);
 	diffuse_strength = fmax(vdot(rec->normal, light_ray.orivec), 0.0);
 	diffuse_strength = pow(diffuse_strength, LIGHT_SHARPNESS);
 	diffuse_color = vdivide(obj->color, 255);
 	diffuse_color = vmult(diffuse_color, obj->ratio);
 	diffuse_color = vmult(diffuse_color, diffuse_strength);
 	diffuse_color = vmult_(diffuse_color, rec->color);
+	diffuse_color = vmult(diffuse_color, light_len_ratio);
 	return (diffuse_color);
 }
 

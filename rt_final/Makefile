@@ -6,7 +6,7 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/07/30 00:46:49 by ychun            ###   ########.fr        #
+#    Updated: 2023/07/30 23:29:39 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,7 +132,7 @@ LD_FLAGS = -L mlx
 MLX_FLAGS = -lm -lmlx -lXext -lX11
 HEAD = -I includes -I mlx
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 
 ${OBJDIR}/%.o : %.c | $(OBJDIR)
@@ -154,7 +154,7 @@ $(NAME_BONUS) : ${OBJS_BONUS}
 	${CC} ${CFLAGS} ${LD_FLAGS} ${OBJS_BONUS} -o ${NAME_BONUS} ${MLX_FLAGS}
 
 clean :
-#	make clean -C mlx
+	make clean -C mlx
 	${RM} ${OBJDIR}
 
 fclean : clean

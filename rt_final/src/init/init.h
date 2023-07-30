@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:58:59 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/28 00:26:59 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/30 18:41:36 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../utils/utils.h"
 # include "../structures/data_structures.h"
-# include "../../settings.h"
+# include "../settings.h"
 # include "../raytracing/raytracing.h"
 
 typedef struct s_hit_record	t_hit_record;

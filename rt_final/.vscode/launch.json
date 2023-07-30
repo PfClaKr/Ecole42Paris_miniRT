@@ -8,8 +8,8 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "miniRT",
-			"args": "scene/test_01_obj.rt",
+			"program": "miniRT_bonus",
+			"args": "scene/basic_plane.rt",
 			"cwd": "${workspaceFolder}"
 		}
 	]

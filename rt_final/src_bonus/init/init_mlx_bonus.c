@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:18:06 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 23:02:32 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/30 18:39:16 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	init_mlx(t_data *data)
 	data->mlx.mlx_ptr = mlx_init();
 	if (!data->mlx.mlx_ptr)
 		return (-1);
-	data->mlx.win_ptr = mlx_new_window(data->mlx.mlx_ptr, WIDTH, HEIGHT, TITLE);
+	data->mlx.win_ptr = mlx_new_window(data->mlx.mlx_ptr,
+			WIDTH, HEIGHT, "miniRT_bonus");
 	if (!data->mlx.win_ptr)
 		return (-1);
 	data->mlx.img.img_ptr = mlx_new_image(data->mlx.mlx_ptr, WIDTH, HEIGHT);
