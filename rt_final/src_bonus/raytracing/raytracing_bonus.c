@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 22:54:27 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/31 01:30:17 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/07/31 03:02:53 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ int	hit_object(t_list *objects, t_ray ray, t_hit_record *rec)
 	{
 		if (objects->id == SP)
 			hit += hit_sphere(objects->data, ray, rec);
-		else if (objects->id == CY)
-			hit += hit_cylinder(objects->data, ray, rec);
+//		else if (objects->id == CY)
+//			hit += hit_cylinder(objects->data, ray, rec);
 		else if (objects->id == PL)
 			hit += hit_plane(objects->data, ray, rec);
+		else if (objects->id == CY)
+			hit += hit_corn(objects->data, ray, rec);
 		if (hit > 0)
 			rec->tmax = rec->t;
 		objects = objects->next;

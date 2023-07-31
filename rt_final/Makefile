@@ -94,6 +94,7 @@ SRCS_BONUS = main_bonus.c \
 		hit_sphere_bonus.c \
 		hit_plane_bonus.c \
 		hit_cylinder_bonus.c \
+		hit_corn_bonus.c \
 		light_model_bonus.c \
 		light_model_phong_bonus.c \
 		\
