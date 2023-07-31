@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:38:36 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 23:04:31 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 01:20:31 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int		data_check_l(char **data);
 int		data_check_pl(char **data);
 int		data_check_sp(char **data);
 int		data_check_cy(char **data);
+int		data_check_co(char **data);
+int		data_check_cu(char **data);
 
 int		filename_check(char *filename);
 
@@ -55,6 +57,8 @@ t_list	*parse_object_l(char **data);
 t_list	*parse_object_pl(char **data);
 t_list	*parse_object_sp(char **data);
 t_list	*parse_object_cy(char **data);
+t_list	*parse_object_co(char **data);
+t_list	*parse_object_cu(char **data);
 
 t_list	*parse_object_by_id(char **data);
 void	parse_object(t_list **objects, char *filename);

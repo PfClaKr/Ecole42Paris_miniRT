@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:47:52 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 22:43:21 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 01:23:59 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,40 @@ t_list	*parse_object_cy(char **data)
 	cy->color = data_get_color(data[5]);
 	obj = ft_list_new(cy);
 	obj->id = CY;
+	return (obj);
+}
+
+t_list	*parse_object_co(char **data)
+{
+	t_cone	*co;
+	t_list	*obj;
+
+	co = malloc(sizeof(t_cone));
+	if (!co)
+		return (NULL);
+	co->pos = data_get_pos(data[1]);
+	co->orivec = data_get_orivec(data[2]);
+	co->diameter = data_get_size(data[3]);
+	co->height = data_get_size(data[4]);
+	co->color = data_get_color(data[5]);
+	obj = ft_list_new(co);
+	obj->id = CO;
+	return (obj);
+}
+
+t_list	*parse_object_cu(char **data)
+{
+	t_cube	*cu;
+	t_list	*obj;
+
+	cu = malloc(sizeof(t_cube));
+	if (!cu)
+		return (NULL);
+	cu->pos = data_get_pos(data[1]);
+	cu->orivec = data_get_orivec(data[2]);
+	cu->width = data_get_size(data[3]);
+	cu->color = data_get_color(data[4]);
+	obj = ft_list_new(cu);
+	obj->id = CU;
 	return (obj);
 }
