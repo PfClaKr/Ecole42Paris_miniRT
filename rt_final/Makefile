@@ -6,7 +6,7 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/07/30 23:29:39 by ychun            ###   ########.fr        #
+#    Updated: 2023/07/31 21:57:33 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,8 @@ SRCS_BONUS = main_bonus.c \
 		hit_sphere_bonus.c \
 		hit_plane_bonus.c \
 		hit_cylinder_bonus.c \
-		hit_corn_bonus.c \
+		hit_cone_bonus.c \
+		hit_cube_bonus.c \
 		light_model_bonus.c \
 		light_model_phong_bonus.c \
 		\

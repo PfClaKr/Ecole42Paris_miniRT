@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:59:20 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/31 02:00:29 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/07/31 22:09:49 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@
 */
 
 // Image window setting // 
-# define WIDTH 800		// range : 0 ~ 
-# define HEIGHT 450		// range : 0 ~
+# define WIDTH 512		// range : 0 ~ 
+# define HEIGHT 512		// range : 0 ~
 
 // Refelct ratio // default : 1.0 // range : 0.0 ~ 1.0 value
 # define ALBEDO_R 1.0
 # define ALBEDO_G 1.0
 # define ALBEDO_B 1.0
 
-// Light strength // default : 8 // range : 0 ~ infinit
-# define LIGHT_STRENGTH 20
+// Light strength // default : 15 // range : 0 ~ infinit
+# define LIGHT_STRENGTH 15
 
 // Light sharpness // default : 4 // range : 0.0 ~ infinit
-# define LIGHT_SHARPNESS 2.0
+# define LIGHT_SHARPNESS 4.0
 
 // Amblight strength // default : 1 // range : 0.1 ~ infinit 
 # define AMBLIGHT_STRENGTH 1
