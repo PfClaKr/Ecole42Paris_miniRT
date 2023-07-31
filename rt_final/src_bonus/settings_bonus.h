@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:59:20 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 23:06:08 by ychun            ###   ########.fr       */
+/*   Updated: 2023/07/31 02:00:29 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define ALBEDO_B 1.0
 
 // Light strength // default : 8 // range : 0 ~ infinit
-# define LIGHT_STRENGTH 8
+# define LIGHT_STRENGTH 20
 
 // Light sharpness // default : 4 // range : 0.0 ~ infinit
 # define LIGHT_SHARPNESS 2.0
