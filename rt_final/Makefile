@@ -6,7 +6,7 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/07/31 21:57:33 by ychun            ###   ########.fr        #
+#    Updated: 2023/08/02 00:29:50 by schaehun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,12 +79,14 @@ SRCS_BONUS = main_bonus.c \
 		\
 		parse_get_data_bonus.c \
 		data_check_common_bonus.c \
+		data_check_texture_bonus.c \
 		data_check_unique_bonus.c \
 		data_check_scene_obj_bonus.c \
 		data_check_geo_obj_bonus.c \
 		data_integrity_check_bonus.c \
 		filename_check_bonus.c \
 		data_get_common_bonus.c \
+		data_get_texture_bonus.c \
 		data_get_unique_bonus.c \
 		parse_geo_obj_bonus.c \
 		parse_scene_obj_bonus.c \
@@ -98,6 +100,9 @@ SRCS_BONUS = main_bonus.c \
 		hit_cube_bonus.c \
 		light_model_bonus.c \
 		light_model_phong_bonus.c \
+		set_obj_color_bonus.c \
+		set_obj_mapping_bonus.c \
+		get_uv_value_bonus.c \
 		\
 		ft_strlen_bonus.c \
 		ft_strcpy_bonus.c \
@@ -119,10 +124,12 @@ SRCS_BONUS = main_bonus.c \
 		v_utils1_bonus.c \
 		v_utils2_bonus.c \
 		v_utils3_bonus.c \
+		v_utils4_bonus.c \
 		get_tan_bonus.c \
-		ft_clamp_bonus.c \
+		ft_clamp_int_bonus.c \
+		ft_clamp_double_bonus.c \
 		get_color_bonus.c \
-		mlx_utils_bonus.c                    
+		mlx_utils_bonus.c
 
 OBJDIR = .obj
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)

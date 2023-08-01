@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 04:59:41 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 17:37:50 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/02 00:19:40 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static int	get_cone_normal(t_cone *obj, t_ray ray,
 	rec->p = p;
 	rec->t = num.root;
 	set_face_normal(ray, rec);
-	get_cone_uv_value(obj, rec);
-	set_obj_color(obj, rec);
+	//get_cone_uv_value(obj, rec);
+	//set_obj_color(obj, rec);
 	return (1);
 }
 

@@ -1,0 +1,15 @@
+A	0.2			255,255,255
+C	0,35,0	0,-1,0	30
+L	0,7,0	1		255,255,255
+
+
+
+pl	0,-1,0	0,1,0		255,255,255
+
+sp	-7.0,0,-7	2.0	255,0,0
+
+sp	0,0,0	2	255,255,255
+sp	0,0,0	2	255,255,255	checker
+sp	0,0,0	2	255,255,255	bump scene/bump.xpm
+sp	0,0,0	2	255,255,255	image scene/image.xpm
+sp	0,0,0	2	255,255,255	bump scene/bump.xpm		image scene/image.xpm

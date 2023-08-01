@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 19:02:16 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 21:57:12 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 22:34:02 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,19 @@ int	main(int ac, char **av)
 	data.objects = NULL;
 	if (ac != 2)
 		ft_error("Error\n./miniRT: bad arguments\n", 1);
-	if (parse(&data.objects, av[1]) == -1)
-		ft_error("Error\nparsing error\n", 1);
-	if (init_objects(&data.objects) == -1)
-	{
-		ft_list_destroy(&data.objects, &free);
-		ft_error("Error\nobject initialization error\n", 1);
-	}
 	if (init_mlx(&data) == -1)
 	{
 		ft_error("Error\nmlx initialization error\n", 0);
+		mlx_close(&data);
+	}
+	if (parse(&data, av[1]) == -1)
+	{
+		ft_error("Error\nparsing error\n", 0);
+		mlx_close(&data);
+	}
+	if (init_objects(&data.objects) == -1)
+	{
+		ft_error("Error\nobject initialization error\n", 0);
 		mlx_close(&data);
 	}
 	raytracing(data.objects, &data.mlx);

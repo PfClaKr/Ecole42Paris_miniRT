@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:38:36 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 01:20:31 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:18:59 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int		data_check_orivec(char *data);
 int		data_check_fov(char *data);
 int		data_check_size(char *data);
 
+int		data_check_texture(char **data);
+
 int		data_check_a(char **data);
 int		data_check_c(char **data);
 int		data_check_l(char **data);
@@ -39,7 +41,7 @@ int		data_check_cy(char **data);
 int		data_check_co(char **data);
 int		data_check_cu(char **data);
 
-int		filename_check(char *filename);
+int		filename_check(char *filename, char *extension);
 
 int		data_check_by_id(char **data);
 int		data_integrity_check(char *filename);
@@ -51,17 +53,19 @@ double	data_get_fov(char *data);
 t_vec3	data_get_orivec(char *data);
 double	data_get_size(char *data);
 
+t_texture	data_get_texture(char **data, t_data *d);
+
 t_list	*parse_object_a(char **data);
 t_list	*parse_object_c(char **data);
 t_list	*parse_object_l(char **data);
-t_list	*parse_object_pl(char **data);
-t_list	*parse_object_sp(char **data);
-t_list	*parse_object_cy(char **data);
-t_list	*parse_object_co(char **data);
-t_list	*parse_object_cu(char **data);
+t_list	*parse_object_pl(char **data, t_data *d);
+t_list	*parse_object_sp(char **data, t_data *d);
+t_list	*parse_object_cy(char **data, t_data *d);
+t_list	*parse_object_co(char **data, t_data *d);
+t_list	*parse_object_cu(char **data, t_data *d);
 
-t_list	*parse_object_by_id(char **data);
-void	parse_object(t_list **objects, char *filename);
-int		parse(t_list **objects, char *filename);
+t_list	*parse_object_by_id(char **data, t_data *d);
+void	parse_object(t_data *d, char *filename);
+int		parse(t_data *data, char *filename);
 
 #endif

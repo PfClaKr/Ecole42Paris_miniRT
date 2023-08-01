@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_obj_color.c                                    :+:      :+:    :+:   */
+/*   set_object_color_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 05:32:45 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 17:58:58 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/02 00:25:10 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ t_vec3	set_color_checker(double u, double v)
 		return (vec3(255, 255, 255));
 }
 
-void	set_obj_color(t_xpm_img *xpm_img, t_hit_record *rec, t_vec3	obj_color)
+void	set_obj_color(t_texture texture, t_hit_record *rec, t_vec3 obj_color)
 {
-	if (!xpm_img->checkerboard)
+	if (texture.is_checker)
 		rec->color = set_color_checker(rec->u, rec->v);
-	else if (!xpm_img->texture)
+	else if (texture.has_image)
 	{
-		rec->color = set_color_mapping(rec->u, rec->v, xpm_img->texture);
-		if (!xpm_img->bump)
-			rec->normal = set_normal_mapping(rec, xpm_img->bump);
+		rec->color = set_color_mapping(rec->u, rec->v, &texture.image);
+		if (texture.has_bump)
+			rec->normal = set_normal_mapping(rec, &texture.bump);
 	}
 	else
 		rec->color = obj_color;

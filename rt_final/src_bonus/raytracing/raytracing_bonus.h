@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:58:50 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 17:17:51 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/02 00:29:35 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ void	get_plane_uv_value(t_hit_record *rec);
 void	get_cylinder_uv_value(t_cylinder *obj, t_hit_record *rec);
 void	get_cone_uv_value(t_cone *obj, t_hit_record *rec);
 
-t_vec3	set_color_mapping(double u, double v, t_xpm_img *img);
-t_vec3	set_normal_mapping(t_hit_record *rec, t_xpm_img *img);
+t_vec3	set_color_checker(double u, double v);
+void	set_obj_color(t_texture texture, t_hit_record *rec, t_vec3 obj_color);
+
+t_vec3	set_color_mapping(double u, double v, t_xpm *img);
+t_vec3	set_normal_mapping(t_hit_record *rec, t_xpm *img);
 
 #endif

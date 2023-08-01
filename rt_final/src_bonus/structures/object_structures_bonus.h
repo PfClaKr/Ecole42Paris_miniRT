@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 23:13:24 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 16:30:01 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 23:18:16 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,22 @@
 # define OBJECT_STRUCTURES_BONUS_H
 
 # include "data_structures_bonus.h"
+
+typedef struct s_xpm
+{
+	t_img	map;
+	int		width;
+	int		height;
+}	t_xpm;
+
+typedef struct s_texture
+{
+	int		is_checker;
+	int		has_image;
+	int		has_bump;
+	t_xpm	image;
+	t_xpm	bump;
+}	t_texture;
 
 typedef struct s_ambient_light
 {
@@ -46,6 +62,7 @@ typedef struct s_sphere
 	double	radius;
 	double	radius2;
 	t_vec3	color;
+	t_texture	texture;
 }	t_sphere;
 
 typedef struct s_plane
@@ -53,6 +70,7 @@ typedef struct s_plane
 	t_vec3	pos;
 	t_vec3	orivec;
 	t_vec3	color;
+	t_texture	texture;
 }	t_plane;
 
 typedef struct s_cylinder
@@ -62,6 +80,7 @@ typedef struct s_cylinder
 	double	diameter;
 	double	height;
 	t_vec3	color;
+	t_texture	texture;
 }	t_cylinder;
 
 typedef struct s_cone
@@ -71,6 +90,16 @@ typedef struct s_cone
 	double	diameter;
 	double	height;
 	t_vec3	color;
+	t_texture	texture;
 }	t_cone;
+
+typedef struct s_cube
+{
+	t_vec3	pos;
+	t_vec3	orivec;
+	double	width;
+	t_vec3	color;
+	t_texture	texture;
+}	t_cube;
 
 #endif

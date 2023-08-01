@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:47:44 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 22:42:39 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 21:55:35 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,4 @@ t_vec3	data_get_pos(char *data)
 	free_double_arr(tmp);
 	return (pos);
 }
+

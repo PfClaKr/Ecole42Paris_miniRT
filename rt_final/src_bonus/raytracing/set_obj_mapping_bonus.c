@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_obj_mapping.c                                  :+:      :+:    :+:   */
+/*   set_object_mapping_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 15:27:01 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 16:01:40 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/02 00:27:20 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ static t_vec3	get_pixel_to_rgb(int mlx_color)
 	return (vec3(r, g, b));
 }
 
-static int	get_xpm_pixel(t_xpm_img *xpm_img, int x, int y)
+static int	get_xpm_pixel(t_xpm *xpm_img, int x, int y)
 {
 	char	*ret;
 
 	x = ft_clamp_int(x, 0, xpm_img->width - 1);
 	y = ft_clamp_int(y, 0, xpm_img->height - 1);
-	ret = xpm_img->img.addr
-		+ (y * xpm_img->img.line + x * (xpm_img->img.bpp / 8));
+	ret = xpm_img->map.addr
+		+ (y * xpm_img->map.line_len + x * (xpm_img->map.bpp / 8));
 	return (*(unsigned int *)ret);
 }
 
-t_vec3	set_color_mapping(double u, double v, t_xpm_img *img)
+t_vec3	set_color_mapping(double u, double v, t_xpm *img)
 {
 	int	u_int;
 	int	v_int;
@@ -55,7 +55,7 @@ t_vec3	set_color_mapping(double u, double v, t_xpm_img *img)
 	return (get_pixel_to_rgb(mlx_color));
 }
 
-t_vec3	set_normal_mapping(t_hit_record *rec, t_xpm_img *img)
+t_vec3	set_normal_mapping(t_hit_record *rec, t_xpm *img)
 {
 	int		u_int;
 	int		v_int;

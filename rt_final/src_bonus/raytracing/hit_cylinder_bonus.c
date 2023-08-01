@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:17:27 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 17:53:57 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 23:20:08 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static int	hit_cy_side(t_cylinder *obj, t_ray ray, t_hit_record *rec)
 	rec->p = vplus(ray.pos, vmult(ray.orivec, num.root));
 	rec->t = num.root;
 	set_face_normal(ray, rec);
-	get_cylinder_uv_value(obj, rec);
-	set_obj_color(obj->xpm_img, rec, obj->color);
+	//get_cylinder_uv_value(obj, rec);
+	//set_obj_color(obj->xpm_img, rec, obj->color);
 	return (1);
 }
 
@@ -86,8 +86,8 @@ static int	hit_cy_cap(t_cylinder *obj, t_ray ray, t_hit_record *rec, double h)
 	else
 		rec->normal = vmult(obj->orivec, -1);
 	set_face_normal(ray, rec);
-	get_plane_uv_value(rec);
-	set_obj_color(rec, obj);
+	//get_plane_uv_value(rec);
+	//set_obj_color(rec, obj);
 	return (1);
 }
 
