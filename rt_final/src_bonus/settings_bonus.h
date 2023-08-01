@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:59:20 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/31 22:09:49 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 16:07:01 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,10 @@
 
 // Specular strength // default : 2 // range : 0.0 ~ 2.0 value
 # define SPECULAR_STRENGTH 2.0
+
+// Checkboard value // default : 4 // range : 0 ~ infinit
+// (have to even number)
+# define CHECKBOARD_WIDTH 4
+# define CHECKBOARD_HEIGHT 4
 
 #endif

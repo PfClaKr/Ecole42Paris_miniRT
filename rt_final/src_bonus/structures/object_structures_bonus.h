@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 23:13:24 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 01:19:04 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/01 16:30:01 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,5 @@ typedef struct s_cone
 	double	height;
 	t_vec3	color;
 }	t_cone;
-
-typedef struct s_cube
-{
-	t_vec3	pos;
-	t_vec3	orivec;
-	double	width;
-	t_vec3	color;
-}	t_cube;
 
 #endif

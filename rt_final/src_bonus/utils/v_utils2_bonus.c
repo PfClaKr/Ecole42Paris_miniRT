@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 00:33:07 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 22:47:44 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 05:22:34 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ double	vlength(t_vec3 v)
 	return (sqrt(vlength2(v)));
 }
 
-t_vec3	vplus(t_vec3 v, t_vec3 v2)
+int	is_vec_equal(t_vec3 v1, t_vec3 v2)
 {
-	v.x += v2.x;
-	v.y += v2.y;
-	v.z += v2.z;
-	return (v);
+	if (v1.x == v2.x && v1.y == v2.y && v1.z == v2.z)
+		return (1);
+	return (0);
 }
 
-t_vec3	vplus_(t_vec3 v, double x, double y, double z)
+t_vec3	vup(t_vec3 v)
 {
-	v.x += x;
-	v.y += y;
-	v.z += z;
-	return (v);
+	if (is_vec_equal(v, vec3(0, 1, 0)))
+		return (vec3(0, 0, 1));
+	if (is_vec_equal(v, vec3(0, -1, 0)))
+		return (vec3(0, 0, -1));
+	return (vec3(0, 1, 0));
 }

@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:46:37 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 22:47:34 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 15:59:25 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ void	vset(t_vec3 *v, double x, double y, double z);
 double	vlength2(t_vec3 v);
 double	vlength(t_vec3 v);
 t_vec3	vplus(t_vec3 v, t_vec3 v2);
-t_vec3	vplus_(t_vec3 v, double x, double y, double z);
 t_vec3	vminus(t_vec3 v1, t_vec3 v2);
-t_vec3	vminus_(t_vec3 v, double x, double y, double z);
 t_vec3	vmult(t_vec3 v, double t);
 t_vec3	vmult_(t_vec3 v1, t_vec3 v2);
 t_vec3	vdivide(t_vec3 v, double t);
+t_vec3	vup(t_vec3 v);
+t_vec3	vmult_matrix(t_vec3 v1, t_vec3 v2,
+			t_vec3 v3, t_vec3 normal);
 float	get_tan(float degree);
-double	ft_clamp(double x);
+double	ft_clamp_double(double x);
+int		ft_clamp_int(int x, int min, int max);
 int		get_color(t_vec3 pixel);
 void	mlx_pixel_put_img(t_mlx *mlx, int i, int j, int color);
 

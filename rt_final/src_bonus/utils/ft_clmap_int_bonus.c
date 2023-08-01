@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clamp_bonus.c                                   :+:      :+:    :+:   */
+/*   ft_clmap_int_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 19:09:40 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 22:46:56 by ychun            ###   ########.fr       */
+/*   Created: 2023/08/01 15:36:06 by ychun             #+#    #+#             */
+/*   Updated: 2023/08/01 15:37:18 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
-double	ft_clamp(double x)
+int	ft_clamp_int(int x, int min, int max)
 {
-	if (x < 0)
-		return (0);
-	else if (x > 1)
-		return (1);
-	else
-		return (x);
+	if (x < min)
+		return (min);
+	if (x > max)
+		return (max);
+	return (x);
 }

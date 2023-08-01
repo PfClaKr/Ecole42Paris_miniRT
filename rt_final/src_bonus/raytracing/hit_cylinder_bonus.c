@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:17:27 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 22:43:37 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 17:53:57 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	set_face_normal(t_ray ray, t_hit_record *rec)
 		rec->normal = vmult(rec->normal, -1);
 }
 
-int	get_cy_normal(t_cylinder *obj, t_hit_record *rec, t_vec3 p)
+static int	get_cy_normal(t_cylinder *obj, t_hit_record *rec, t_vec3 p)
 {
 	double	hit_height;
 	double	max_height;
@@ -34,7 +34,7 @@ int	get_cy_normal(t_cylinder *obj, t_hit_record *rec, t_vec3 p)
 	return (1);
 }
 
-int	hit_cy_side(t_cylinder *obj, t_ray ray, t_hit_record *rec)
+static int	hit_cy_side(t_cylinder *obj, t_ray ray, t_hit_record *rec)
 {
 	t_hit_num	num;
 
@@ -57,12 +57,13 @@ int	hit_cy_side(t_cylinder *obj, t_ray ray, t_hit_record *rec)
 		return (0);
 	rec->p = vplus(ray.pos, vmult(ray.orivec, num.root));
 	rec->t = num.root;
-	rec->color = obj->color;
 	set_face_normal(ray, rec);
+	get_cylinder_uv_value(obj, rec);
+	set_obj_color(obj->xpm_img, rec, obj->color);
 	return (1);
 }
 
-int	hit_cy_cap(t_cylinder *obj, t_ray ray, t_hit_record *rec, double h)
+static int	hit_cy_cap(t_cylinder *obj, t_ray ray, t_hit_record *rec, double h)
 {
 	double	r;
 	double	root;
@@ -85,7 +86,8 @@ int	hit_cy_cap(t_cylinder *obj, t_ray ray, t_hit_record *rec, double h)
 	else
 		rec->normal = vmult(obj->orivec, -1);
 	set_face_normal(ray, rec);
-	rec->color = obj->color;
+	get_plane_uv_value(rec);
+	set_obj_color(rec, obj);
 	return (1);
 }
 

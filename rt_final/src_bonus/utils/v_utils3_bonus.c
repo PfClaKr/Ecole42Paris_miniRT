@@ -6,11 +6,19 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 00:37:09 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/29 22:47:47 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/01 05:20:18 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
+
+t_vec3	vplus(t_vec3 v, t_vec3 v2)
+{
+	v.x += v2.x;
+	v.y += v2.y;
+	v.z += v2.z;
+	return (v);
+}
 
 t_vec3	vminus(t_vec3 v1, t_vec3 v2)
 {
@@ -18,14 +26,6 @@ t_vec3	vminus(t_vec3 v1, t_vec3 v2)
 	v1.y -= v2.y;
 	v1.z -= v2.z;
 	return (v1);
-}
-
-t_vec3	vminus_(t_vec3 v, double x, double y, double z)
-{
-	v.x -= x;
-	v.y -= y;
-	v.z -= z;
-	return (v);
 }
 
 t_vec3	vmult(t_vec3 v, double t)
