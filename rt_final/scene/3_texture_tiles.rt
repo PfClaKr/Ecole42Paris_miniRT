@@ -1,0 +1,12 @@
+A	0.2	255,255,255
+C	0,2,0	0,-1,0	70
+L	-4,2,4	1	255,255,255
+L	4,2,4	1	255,255,255
+L	-4,2,-4	1	255,255,255
+L	4,2,-4	1	255,255,255
+
+
+pl	0,-1,0	0.001,1,0.001	255,255,255	image ./image/rock.xpm	bump ./bump/rock_normal.xpm
+pl	0,-1,0	-0.001,1,0.001	255,255,255	image ./image/waffle.xpm	bump ./bump/waffle_normal.xpm
+pl	0,-1,0	0.001,1,-0.001	255,255,255	image ./image/icecream.xpm	bump ./bump/icecream_normal.xpm
+pl	0,-1,0	-0.001,1,-0.001	255,255,255	image ./image/block.xpm	bump ./bump/block_normal.xpm

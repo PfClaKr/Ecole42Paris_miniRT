@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_object_mapping_bonus.c                         :+:      :+:    :+:   */
+/*   set_obj_mapping_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 15:27:01 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/02 00:27:20 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/02 23:27:14 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static t_vec3	get_pixel_to_rgb(int mlx_color)
 	double	g;
 	double	b;
 
-	r = (double)pixel_extract_to_rgb(mlx_color, RED) / 256;
-	g = (double)pixel_extract_to_rgb(mlx_color, GREEN) / 256;
-	b = (double)pixel_extract_to_rgb(mlx_color, BLUE) / 256;
+	r = (double)pixel_extract_to_rgb(mlx_color, RED);
+	g = (double)pixel_extract_to_rgb(mlx_color, GREEN);
+	b = (double)pixel_extract_to_rgb(mlx_color, BLUE);
 	return (vec3(r, g, b));
 }
 
@@ -66,7 +66,7 @@ t_vec3	set_normal_mapping(t_hit_record *rec, t_xpm *img)
 	v_int = (int)((1.0 - rec->v) * img->height);
 	mlx_color = get_xpm_pixel(img, u_int, v_int);
 	normal_color = get_pixel_to_rgb(mlx_color);
-	normal_color = vminus(vmult(normal_color, 2), vec3(1, 1, 1));
+	normal_color = vminus(vmult(vdivide(normal_color, 255), 2), vec3(1, 1, 1));
 	return (vmult_matrix
 		(rec->u_orivec, rec->v_orivec, rec->normal, normal_color));
 }

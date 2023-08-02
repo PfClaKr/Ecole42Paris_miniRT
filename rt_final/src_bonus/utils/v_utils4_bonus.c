@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 15:52:36 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 15:59:01 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/02 21:07:53 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_vec3	vmult_matrix(t_vec3 v1, t_vec3 v2, t_vec3 v3, t_vec3 normal)
 		* normal.x + matrix[0][1] * normal.y + matrix[0][2] * normal.z;
 	ret.y = matrix[1][0]
 		* normal.x + matrix[1][1] * normal.y + matrix[1][2] * normal.z;
-	ret.x = matrix[2][0]
+	ret.z = matrix[2][0]
 		* normal.x + matrix[2][1] * normal.y + matrix[2][2] * normal.z;
 	return (ret);
 }

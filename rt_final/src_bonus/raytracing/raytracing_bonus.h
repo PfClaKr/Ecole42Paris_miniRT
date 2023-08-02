@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:58:50 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/02 02:07:15 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/02 22:41:04 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_vec3	light_model(t_list *objects, t_ray camera_ray, t_hit_record *rec);
 t_vec3	phong_model(t_list *objects, t_light *obj,
 			t_ray camera_ray, t_hit_record *rec);
 
-void	get_sphere_uv_value(t_hit_record *rec);
+void	get_sphere_uv_value(t_sphere *obj, t_hit_record *rec);
 void	get_plane_uv_value(t_hit_record *rec);
 void	get_cylinder_uv_value(t_cylinder *obj, t_hit_record *rec);
 void	get_cone_uv_value(t_cone *obj, t_hit_record *rec);

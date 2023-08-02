@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_object_color_bonus.c                           :+:      :+:    :+:   */
+/*   set_obj_color_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 05:32:45 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/02 00:25:10 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/02 23:26:31 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ t_vec3	set_color_checker(double u, double v)
 
 void	set_obj_color(t_texture texture, t_hit_record *rec, t_vec3 obj_color)
 {
+	if (!(texture.is_checker || texture.has_image))
+		rec->color = obj_color;
 	if (texture.is_checker)
 		rec->color = set_color_checker(rec->u, rec->v);
-	else if (texture.has_image)
-	{
+	if (texture.has_image)
 		rec->color = set_color_mapping(rec->u, rec->v, &texture.image);
-		if (texture.has_bump)
-			rec->normal = set_normal_mapping(rec, &texture.bump);
-	}
-	else
-		rec->color = obj_color;
+	if (texture.has_bump)
+		rec->normal = set_normal_mapping(rec, &texture.bump);
 }
