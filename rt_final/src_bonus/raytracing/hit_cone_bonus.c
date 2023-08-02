@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 04:59:41 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/02 00:19:40 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/02 02:16:31 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static int	get_cone_normal(t_cone *obj, t_ray ray,
 	rec->p = p;
 	rec->t = num.root;
 	set_face_normal(ray, rec);
-	//get_cone_uv_value(obj, rec);
-	//set_obj_color(obj, rec);
+	get_cone_uv_value(obj, rec);
+	set_obj_color(obj->texture, rec, obj->color);
 	return (1);
 }
 
@@ -71,12 +71,40 @@ static int	hit_cone_side(t_cone *obj, t_ray ray, t_hit_record *rec)
 	return (1);
 }
 
+static int	hit_cone_cap(t_cone *obj, t_ray ray, t_hit_record *rec, double h)
+{
+	double	r;
+	double	root;
+	t_vec3	cap_center;
+
+	r = obj->diameter / 2;
+	cap_center = vplus(obj->pos, vmult(obj->orivec, h));
+	root = vdot(vminus(cap_center, ray.pos), obj->orivec)
+		/ vdot(ray.orivec, obj->orivec);
+	if (fabs(r) < fabs(vlength(vminus(cap_center,
+					vplus(ray.pos, vmult(ray.orivec, root))))))
+		return (0);
+	if (root < rec->tmin || rec->tmax < root)
+		return (0);
+	rec->t = root;
+	rec->p = vplus(ray.pos, vmult(ray.orivec, root));
+	rec->tmax = rec->t;
+	if (0 < h)
+		rec->normal = obj->orivec;
+	else
+		rec->normal = vmult(obj->orivec, -1);
+	set_face_normal(ray, rec);
+	get_plane_uv_value(rec);
+	set_obj_color(obj->texture, rec, obj->color);
+	return (1);
+}
+
 int	hit_cone(t_cone *obj, t_ray ray, t_hit_record *rec)
 {
 	int	ret;
 
 	ret = 0;
-//	ret += hit_cone_cap(obj, ray, rec);
+	ret += hit_cone_cap(obj, ray, rec, 0);
 	ret += hit_cone_side(obj, ray, rec);
 	return (ret);
 }

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   data_get_texture_bonus.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/02 01:32:53 by ychun             #+#    #+#             */
+/*   Updated: 2023/08/02 01:56:30 by ychun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parse_bonus.h"
 
 static t_texture	init_texture(void)
 {
-	t_texture texture;
+	t_texture	texture;
 
 	texture.is_checker = 0;
 	texture.has_image = 0;
@@ -14,14 +26,9 @@ static t_xpm	data_get_xpm(char *r_path, t_data *d)
 {
 	t_xpm	xpm;
 
-	xpm.width = 32;
-	xpm.height = 32;
-	xpm.map.img_ptr = mlx_xpm_file_to_image(&d->mlx, r_path,
+	xpm.map.img_ptr = mlx_xpm_file_to_image(d->mlx.mlx_ptr, r_path,
 			&xpm.width, &xpm.height);
-	// xpm.map.img_ptr = NULL <------ don't know why, maybe because &d->mlx is wrong
-	// Segmenation fault here! //
 	xpm.map.addr = mlx_get_data_addr(xpm.map.img_ptr, &xpm.map.bpp, &xpm.map.line_len, &xpm.map.endian);
-	/////////////////////////////
 	return (xpm);
 }
 

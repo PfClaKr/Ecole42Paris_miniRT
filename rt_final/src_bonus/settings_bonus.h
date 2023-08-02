@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 20:59:20 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 16:07:01 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/02 02:44:06 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define ALBEDO_B 1.0
 
 // Light strength // default : 15 // range : 0 ~ infinit
-# define LIGHT_STRENGTH 15
+# define LIGHT_STRENGTH 30
 
 // Light sharpness // default : 4 // range : 0.0 ~ infinit
 # define LIGHT_SHARPNESS 4.0
@@ -48,7 +48,7 @@
 
 // Checkboard value // default : 4 // range : 0 ~ infinit
 // (have to even number)
-# define CHECKBOARD_WIDTH 4
-# define CHECKBOARD_HEIGHT 4
+# define CHECKBOARD_WIDTH 12
+# define CHECKBOARD_HEIGHT 6
 
 #endif

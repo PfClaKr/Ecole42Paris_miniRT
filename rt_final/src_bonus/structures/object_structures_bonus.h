@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 23:13:24 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 23:18:16 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/02 01:58:28 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,48 +57,48 @@ typedef struct s_light
 
 typedef struct s_sphere
 {
-	t_vec3	pos;
-	double	diameter;
-	double	radius;
-	double	radius2;
-	t_vec3	color;
+	t_vec3		pos;
+	double		diameter;
+	double		radius;
+	double		radius2;
+	t_vec3		color;
 	t_texture	texture;
 }	t_sphere;
 
 typedef struct s_plane
 {
-	t_vec3	pos;
-	t_vec3	orivec;
-	t_vec3	color;
+	t_vec3		pos;
+	t_vec3		orivec;
+	t_vec3		color;
 	t_texture	texture;
 }	t_plane;
 
 typedef struct s_cylinder
 {
-	t_vec3	pos;
-	t_vec3	orivec;
-	double	diameter;
-	double	height;
-	t_vec3	color;
+	t_vec3		pos;
+	t_vec3		orivec;
+	double		diameter;
+	double		height;
+	t_vec3		color;
 	t_texture	texture;
 }	t_cylinder;
 
 typedef struct s_cone
 {
-	t_vec3	pos;
-	t_vec3	orivec;
-	double	diameter;
-	double	height;
-	t_vec3	color;
+	t_vec3		pos;
+	t_vec3		orivec;
+	double		diameter;
+	double		height;
+	t_vec3		color;
 	t_texture	texture;
 }	t_cone;
 
 typedef struct s_cube
 {
-	t_vec3	pos;
-	t_vec3	orivec;
-	double	width;
-	t_vec3	color;
+	t_vec3		pos;
+	t_vec3		orivec;
+	double		width;
+	t_vec3		color;
 	t_texture	texture;
 }	t_cube;
 
