@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:18:06 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 18:39:36 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/03 11:34:12 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ int	mlx_keyhook(int key, t_data *data)
 
 int	init_mlx(t_data *data)
 {
+	data->mlx.mlx_ptr = NULL;
+	data->mlx.img.img_ptr = NULL;
+	data->mlx.win_ptr = NULL;
+	if (HEIGHT < 1 || WIDTH < 1)
+		return (-1);
 	data->mlx.mlx_ptr = mlx_init();
 	if (!data->mlx.mlx_ptr)
 		return (-1);

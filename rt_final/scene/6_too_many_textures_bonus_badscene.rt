@@ -1,0 +1,29 @@
+
+A	0.2			255,255,255
+C	0,35,0	0,-1,0	30
+L	-10,7,0	1		255,255,255
+L	10,7,0	1		255,255,255
+L	0,3,9	1		255,255,255
+L	0,3,-9	1		255,255,255
+
+pl	0,-1,0	0,1,0		255,255,255	checker
+
+sp	-7.0,0,-4	2.0	255,0,0		image	./scene/image/rock.xpm
+sp	-4.2,0,-4	2.0	0,255,0		image	./scene/image/icecream.xpm
+sp	-1.4,0,-4	2.0	0,0,255		image	./scene/image/waffle.xpm
+
+cy	2.5,0,0		1,0,0	5.0	5.0	255,255,255		checker
+cy	-2.5,0,0	1,0,0	5.0	5.0	255,255,255		image	./scene/image/block.xpm
+
+sp	7,0,-1		1.0	0,0,0					checker
+cy	7,0,1		0,1,0	1.0	1.0	255,255,255		checker
+co	7,0,3		0,1,0	1.0	1.0	255,255,255		checker
+
+sp	1.4,0,-4	2.0	200,150,150	bump	./scene/bump/rock_normal.xpm
+sp	4.2,0,-4	2.0	150,200,150	bump	./scene/bump/icecream_normal.xpm
+sp	7.0,0,-4	2.0	150,150,200	bump	./scene/bump/waffle_normal.xpm
+
+
+sp	-7.0,0,5	2.0	255,0,0		image	./scene/image/rock.xpm		bump	./scene/bump/rock_normal.xpm
+sp	-4.2,0,5	2.0	0,255,0		image	./scene/image/icecream.xpm	bump	./scene/bump/icecream_normal.xpm
+sp	-1.4,0,5	2.0	0,0,255		image	./scene/image/waffle.xpm	bump	./scene/bump/waffle_normal.xpm
