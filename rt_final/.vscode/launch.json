@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Debug",
 			"program": "miniRT_bonus",
-			"args": "scene/test.rt",
+			"args": "scene/1_lots_of_spheres.rt",
 			"cwd": "${workspaceFolder}"
 		}
 	]

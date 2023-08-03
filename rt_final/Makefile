@@ -6,7 +6,7 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/08/02 00:29:50 by schaehun         ###   ########.fr        #
+#    Updated: 2023/08/03 02:20:18 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,6 +126,7 @@ SRCS_BONUS = main_bonus.c \
 		v_utils3_bonus.c \
 		v_utils4_bonus.c \
 		get_tan_bonus.c \
+		get_rand_num_bonus.c \
 		ft_clamp_int_bonus.c \
 		ft_clamp_double_bonus.c \
 		get_color_bonus.c \

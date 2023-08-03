@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 01:01:06 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/02 02:01:05 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/03 01:17:06 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int	hit_plane(t_plane *obj, t_ray ray, t_hit_record *rec)
 	rec->normal = obj->orivec;
 	set_face_normal(ray, rec);
 	get_plane_uv_value(rec);
-	set_obj_color(obj->texture, rec, obj->color);
+	set_obj_color(obj->texture, rec, obj->color, 0.5);
 	return (1);
 }

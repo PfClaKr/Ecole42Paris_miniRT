@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 22:54:27 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/02 23:28:22 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/03 03:06:12 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,45 @@ void	rendering(t_mlx *mlx, int i, int j, double color)
 		mlx_pixel_put_img(mlx, i, j, color);
 }
 
-void	raytracing(t_list *objects, t_mlx *mlx)
+void	raytracing_loop(t_list *objects, t_mlx *mlx, int x, int y)
 {
-	int				i;
-	int				j;
-	t_camera		*temp_cam;
-	t_ray			ray;
+	t_ray		ray;
+	t_camera	*temp_cam;
+	t_vec3		final_color;
+	int			i;
+	int			anti;
 
 	temp_cam = (t_camera *)ft_list_find(objects, C);
-	j = HEIGHT - 1;
-	while (j >= 0)
+	final_color = vec3(0, 0, 0);
+	i = ANTI_ALIASING;
+	anti = ANTI_ALIASING;
+	if (anti < 1)
+		anti = 1;
+	while (i >= 0)
 	{
-		i = 0;
-		while (i < WIDTH)
-		{
-			ray = init_camera_ray(temp_cam, i, j);
-			rendering(mlx, i, HEIGHT - 1 - j,
-				get_color(ray_color(objects, ray)));
-			++i;
-		}
-		--j;
+		ray = init_camera_ray(temp_cam,
+				ft_clamp_int((x + (get_rand_num(ANTI_ALIASING) % 2)),
+					0, WIDTH),
+				ft_clamp_int((y - (get_rand_num(ANTI_ALIASING) % 2)),
+					0, HEIGHT - 1));
+		final_color = vplus(final_color, ray_color(objects, ray));
+		i--;
+	}
+	final_color = vdivide(final_color, anti);
+	rendering(mlx, x, HEIGHT - 1 - y, get_color(final_color));
+}
+
+void	raytracing(t_list *objects, t_mlx *mlx)
+{
+	int	x;
+	int	y;
+
+	y = HEIGHT;
+	while (--y >= 0)
+	{
+		x = -1;
+		while (++x < WIDTH)
+			raytracing_loop(objects, mlx, x, y);
 	}
 	if (!RENDER_BY_PIXEL)
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr,

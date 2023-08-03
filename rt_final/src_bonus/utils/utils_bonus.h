@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:46:37 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 15:59:25 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/03 02:05:44 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_vec3	vdivide(t_vec3 v, double t);
 t_vec3	vup(t_vec3 v);
 t_vec3	vmult_matrix(t_vec3 v1, t_vec3 v2,
 			t_vec3 v3, t_vec3 normal);
+int		get_rand_num(int anti);
 float	get_tan(float degree);
 double	ft_clamp_double(double x);
 int		ft_clamp_int(int x, int min, int max);
