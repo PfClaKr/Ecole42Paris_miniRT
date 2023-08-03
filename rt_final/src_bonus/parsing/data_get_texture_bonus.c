@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 01:32:53 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/02 01:56:30 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/03 03:31:51 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,31 @@ static t_xpm	data_get_xpm(char *r_path, t_data *d)
 
 	xpm.map.img_ptr = mlx_xpm_file_to_image(d->mlx.mlx_ptr, r_path,
 			&xpm.width, &xpm.height);
-	xpm.map.addr = mlx_get_data_addr(xpm.map.img_ptr, &xpm.map.bpp, &xpm.map.line_len, &xpm.map.endian);
+	xpm.map.addr = mlx_get_data_addr(xpm.map.img_ptr,
+			&xpm.map.bpp, &xpm.map.line_len, &xpm.map.endian);
 	return (xpm);
+}
+
+static void	data_get_texture_loop(char **data, t_data *d,
+	t_texture *texture, int *i)
+{
+	if (ft_strcmp(data[*i], "checker") == 0)
+	{
+		texture->is_checker = 1;
+		*i += 1;
+	}
+	else if (ft_strcmp(data[*i], "image") == 0)
+	{
+		texture->has_image = 1;
+		texture->image = data_get_xpm(data[*i + 1], d);
+		*i += 2;
+	}
+	else if (ft_strcmp(data[*i], "bump") == 0)
+	{
+		texture->has_bump = 1;
+		texture->bump = data_get_xpm(data[*i + 1], d);
+		*i += 2;
+	}
 }
 
 t_texture	data_get_texture(char **data, t_data *d)
@@ -42,24 +65,6 @@ t_texture	data_get_texture(char **data, t_data *d)
 		return (texture);
 	i = 0;
 	while (data[i])
-	{
-		if (ft_strcmp(data[i], "checker") == 0)
-		{
-			texture.is_checker = 1;
-			i += 1;
-		}
-		else if (ft_strcmp(data[i], "image") == 0)
-		{
-			texture.has_image = 1;
-			texture.image = data_get_xpm(data[i + 1], d);
-			i += 2;
-		}
-		else if (ft_strcmp(data[i], "bump") == 0)
-		{
-			texture.has_bump = 1;
-			texture.bump = data_get_xpm(data[i + 1], d);
-			i += 2;
-		}
-	}
+		data_get_texture_loop(data, d, &texture, &i);
 	return (texture);
 }

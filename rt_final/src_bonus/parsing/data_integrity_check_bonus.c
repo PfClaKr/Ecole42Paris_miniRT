@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:47:47 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 01:12:11 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/03 03:36:52 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	data_check_by_id(char **data)
 		ret = data_check_cy(data);
 	else if (ft_strcmp(id, "co") == 0)
 		ret = data_check_co(data);
-	else if (ft_strcmp(id, "cu") == 0)
-		ret = data_check_cu(data);
 	return (ret);
 }
 

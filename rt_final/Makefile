@@ -6,7 +6,7 @@
 #    By: ychun <ychun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 06:53:45 by ychun             #+#    #+#              #
-#    Updated: 2023/08/03 02:20:18 by ychun            ###   ########.fr        #
+#    Updated: 2023/08/03 04:38:15 by ychun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,6 @@ SRCS_BONUS = main_bonus.c \
 		hit_plane_bonus.c \
 		hit_cylinder_bonus.c \
 		hit_cone_bonus.c \
-		hit_cube_bonus.c \
 		light_model_bonus.c \
 		light_model_phong_bonus.c \
 		set_obj_color_bonus.c \
@@ -143,7 +142,7 @@ MLX_FLAGS = -lm -lmlx -lXext -lX11
 HEAD = -I includes -I mlx
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3
 
 ${OBJDIR}/%.o : %.c | $(OBJDIR)
 	${CC} ${CFLAGS} ${HEAD} -c $< -o $@

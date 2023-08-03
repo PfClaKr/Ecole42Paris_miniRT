@@ -6,21 +6,54 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:18:06 by ychun             #+#    #+#             */
-/*   Updated: 2023/07/30 18:39:16 by ychun            ###   ########.fr       */
+/*   Updated: 2023/08/03 04:30:24 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init_bonus.h"
 
+t_texture	*ft_find_texture(t_list *objects)
+{
+	if (objects->id == PL)
+		return (&((t_plane *)(objects->data))->texture);
+	else if (objects->id == SP)
+		return (&((t_sphere *)(objects->data))->texture);
+	else if (objects->id == CY)
+		return (&((t_cylinder *)(objects->data))->texture);
+	else if (objects->id == CO)
+		return (&((t_cone *)(objects->data))->texture);
+	return (NULL);
+}
+
+void	mlx_destroy_xpm_image(t_data *data)
+{
+	t_list		*objects;
+	t_texture	*temp;
+
+	objects = data->objects;
+	while (objects)
+	{
+		temp = ft_find_texture(objects);
+		objects = objects->next;
+		if (!temp)
+			continue ;
+		if (temp->has_image == 1)
+			mlx_destroy_image(data->mlx.mlx_ptr, temp->image.map.img_ptr);
+		if (temp->has_bump == 1)
+			mlx_destroy_image(data->mlx.mlx_ptr, temp->bump.map.img_ptr);
+	}
+}
+
 int	mlx_close(t_data *data)
 {
-	ft_list_destroy(&data->objects, &free);
+	mlx_destroy_xpm_image(data);
 	if (data->mlx.win_ptr)
 		mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 	if (data->mlx.img.img_ptr)
 		mlx_destroy_image(data->mlx.mlx_ptr, data->mlx.img.img_ptr);
 	if (data->mlx.mlx_ptr)
 		mlx_destroy_display(data->mlx.mlx_ptr);
+	ft_list_destroy(&data->objects, &free);
 	free(data->mlx.mlx_ptr);
 	exit(0);
 }

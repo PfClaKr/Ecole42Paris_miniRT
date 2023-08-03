@@ -6,7 +6,7 @@
 /*   By: ychun <ychun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 22:47:46 by ychun             #+#    #+#             */
-/*   Updated: 2023/08/01 22:42:44 by schaehun         ###   ########.fr       */
+/*   Updated: 2023/08/03 03:37:01 by ychun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ t_list	*parse_object_by_id(char **data, t_data *d)
 		return (parse_object_cy(data, d));
 	else if (ft_strcmp(id, "co") == 0)
 		return (parse_object_co(data, d));
-	else if (ft_strcmp(id, "cu") == 0)
-		return (parse_object_cu(data, d));
 	return (NULL);
 }
 
